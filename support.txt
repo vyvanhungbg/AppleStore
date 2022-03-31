@@ -1,0 +1,20 @@
+dowload composer + php 8,1 về . Tiến hành cài composer vào đường dẫn chữ php.exe (C:/php/php.exe)
+tiến hành chạy
+tạo thư mục :
+composer create-project laravel/laravel your-project-name
+
+-Chạy server
+    php artisan serve
+
+Lỗi
+- Uncaught Error: Class "Illuminate\Foundation\Application"
+- failed to open stream: No such file or directory in C:\...\vendor\composer\autoload_real.php
+chạy :
+    composer update --ignore-platform-reqs
+
+    composer dump-autoload
+    composer update --no-scripts
+    composer update
+
+- Tạo file Controller
+    php .\artisan make:controller WelcomeController
