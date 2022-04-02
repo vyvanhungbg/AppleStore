@@ -5,13 +5,13 @@
     <tr>
         <th>id</th>
         <th>Tên</th>
-        <th>ngày sinh</th>
+        <th>Tuổi</th>
     </tr>
     @foreach ($students as $student)
         <tr>
             <td>{{$student->id}}</td>
             <td>{{$student->name}}</td>
-            <td>{{$student->birthdate}}</td>
+            <td>{{$student->get_age}}</td>
         </tr>
         @endforeach
 </table>
