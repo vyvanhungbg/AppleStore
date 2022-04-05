@@ -22,6 +22,10 @@ tiến hành chạy
         php artisan make:migration create_students_table
     -Tạo model student
         php artisan make:model Student
+    - Reload code change in balade views
+        php artisan view:clear
+    - Tạo model + Controller
+        php artisan make:model Student -a
 
 
 #Lỗi

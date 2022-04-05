@@ -1,7 +1,9 @@
-<h1>
-    "Đây là danh sách sinh viên"
-</h1>
+
 <table border="1">
+    <tr>
+       <td><a href="{{route('create')}}">Thêm</a></td>
+       <td colspan="2">Danh sách</td>
+    </tr>
     <tr>
         <th>id</th>
         <th>Tên</th>
