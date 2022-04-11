@@ -17,7 +17,18 @@ class HomeController extends Controller
 
         //query Top 3 best selling products
         $images_top_3_best_sell = DB::table('product')->orderBy('sold','desc')->limit(3)->get();
-        return view("index",data: ['images_banner' => $images_banner, 'images_top_3_best_sell' => $images_top_3_best_sell]);
+
+        // query Bestsaler
+        $product_best_sell = DB::table('product')->orderBy('sold','desc')->limit(8)->get();
+        $product_sell_time = DB::table('product')->get()->first();
+        $product_price_max = DB::table('product')->orderBy('price','desc')->limit(6)->get();
+        return view("index",data: [
+            'images_banner' => $images_banner,
+            'images_top_3_best_sell' => $images_top_3_best_sell,
+            'product_best_sell' => $product_best_sell,
+            'product_sell_time' => $product_sell_time,
+             "product_price_max" =>$product_price_max
+        ]);
     }
 
     /**

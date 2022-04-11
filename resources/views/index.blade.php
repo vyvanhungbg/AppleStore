@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="row product__filter">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+           {{-- <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="../Images/mac2019.jpg">
                         <span class="label">New</span>
@@ -131,8 +131,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+            </div>--}}
+            {{--<div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
                         <ul class="product__hover">
@@ -371,7 +371,45 @@
                         </div>
                     </div>
                 </div>
+            </div>--}}
+            @foreach($product_best_sell as $product)
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix  @if($product->id %3 ==0) new-arrivals  @endif @if($product->id %2 ==0) hot-sales   @endif">
+                <div class="product__item sale">
+                    <div class="product__item__pic set-bg" data-setbg="{{asset("img/image-product/".$product->image)}}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li><a href="#"><img src="../Images/heart.png" alt=""></a></li>
+                            <li><a href="#"><img src="../Images/compare.png" alt=""> <span>Compare</span></a></li>
+                            <li><a href="#"><img src="../Images/search.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{$product->name }} </h6>
+                        <a href="#" class="add-cart">+ Add To Cart</a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>${{$product->price}}</h5>
+                        <div class="product__color__select">
+                            <label for="pc-1">
+                                <input type="radio" id="pc-1">
+                            </label>
+                            <label class="active black" for="pc-2">
+                                <input type="radio" id="pc-2">
+                            </label>
+                            <label class="grey" for="pc-3">
+                                <input type="radio" id="pc-3">
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            @endforeach
         </div>
     </div>
 </section>
@@ -383,22 +421,22 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="categories__text">
-                    <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
+                    <h2>Ipad Air <br /> <span>Iphone Promax</span> <br /> Apple watch</h2>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="categories__hot__deal">
-                    <img src="img/product-sale.png" alt="">
+                    <img src="{{asset("img/image-product/".$product_sell_time->image)}}" alt="">
                     <div class="hot__deal__sticker">
                         <span>Sale Of</span>
-                        <h5>$29.99</h5>
+                        <h5>${{$product_sell_time->price}}</h5>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1">
                 <div class="categories__deal__countdown">
                     <span>Deal Of The Week</span>
-                    <h2>Multi-pocket Chest Bag Black</h2>
+                    <h2>{{$product_sell_time->name}}</h2>
                     <div class="categories__deal__countdown__timer" id="countdown">
                         <div class="cd-item">
                             <span>3</span>
@@ -431,12 +469,15 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="instagram__pic">
-                    <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-1.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-2.jpg"></div>
+                    @foreach($product_price_max as $product)
+{{--                        <div class="instagram__pic__item set-bg" data-setbg="{{asset("img/image-product/".$product->image)}}"></div>--}}
+                        <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-1.jpg"></div>
+                    @endforeach
+                    {{--<div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-2.jpg"></div>
                     <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-3.jpg"></div>
                     <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-4.jpg"></div>
                     <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-5.jpg"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-6.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="img/instagram/instagram-6.jpg"></div>--}}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -444,7 +485,7 @@
                     <h2>Instagram</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua.</p>
-                    <h3>#Male_Fashion</h3>
+                    <h3>#Apple_Store</h3>
                 </div>
             </div>
         </div>
