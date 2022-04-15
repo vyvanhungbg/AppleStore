@@ -1395,6 +1395,8 @@ ol {
 	color: #ffffff;
 }
 
+
+
 .shop__sidebar__accordion .card-heading a:after,
 .shop__sidebar__accordion .card-heading>a.active[aria-expanded=false]:after {
 	content: "˅";
