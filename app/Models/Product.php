@@ -14,5 +14,13 @@ class Product extends Model
     protected $table ='product';  // kết nói với bảng nào mặc định sẽ tự kết nối với bảng theo tên model (viết lower) +'s'
 
 
+    public function get_url_image():string
+    {
+        return "img/image-product/".$this->image;
+    }
 
+    public function getProductPrice():string
+    {
+        return "$".$this->price;
+    }
 }

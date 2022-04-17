@@ -45,7 +45,7 @@
                                                 <ul class="nice-scroll">
                                                     <li><a href="shop">All</a></li>
                                                     @foreach($categories as $category)
-                                                        <li><a href="{{"shop?category=".$category->name}}">{{$category->name}}</a></li>
+                                                        <li><a @if(!strcmp($category_selected , $category->name)) style="color: black;"  @endif href="{{"shop?category=".$category->name}}">{{$category->name}}</a></li>
                                                     @endforeach
                                                 </ul>
                                             </div>
@@ -61,12 +61,12 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">$0.00 - $50.00</a></li>
-                                                    <li><a href="#">$50.00 - $100.00</a></li>
-                                                    <li><a href="#">$100.00 - $150.00</a></li>
-                                                    <li><a href="#">$150.00 - $200.00</a></li>
-                                                    <li><a href="#">$200.00 - $250.00</a></li>
-                                                    <li><a href="#">250.00+</a></li>
+                                                    <li><a href="#">All</a></li>
+                                                    @foreach($level_price as $price)
+                                                        <li><a  href="{{"shop?price_min=".$price."&price_max=".$price+500}}">${{$price}} - ${{$price+500}}</a></li>
+                                                    @endforeach
+
+<!--                                                    --><?php //print_r($request->input('category')) ?>
                                                 </ul>
                                             </div>
                                         </div>
