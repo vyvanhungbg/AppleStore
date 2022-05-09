@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\StudentsController;
@@ -25,5 +26,11 @@ Route::get('/',
 Route::get('/shop',
     action : [ShopController::class,'index']);
 
-Route::post('/create',
-    action : [StudentsController::class,'store'])->name('store');
+
+
+
+Route::get('/cart',
+    action : [CartController::class,'index']);
+
+Route::get('/add-to-cart',
+    action : [CartController::class,'update_cart']);

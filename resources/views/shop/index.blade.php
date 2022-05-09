@@ -43,7 +43,7 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    <li><a @if(strcmp($category_selected , null)===0 ) style="color: black;"  @endif href="shop">All</a></li>
+                                                    <li><a @if($category_selected ===null) style="color: black;"  @endif href="shop">All</a></li>
                                                     @foreach($categories as $category)
                                                         <li><a @if(!strcmp($category_selected , $category->name)) style="color: black;"  @endif href="{{"shop?category=".$category->name}}">{{$category->name}}</a></li>
                                                     @endforeach
@@ -62,7 +62,7 @@
                                             <div class="shop__sidebar__price">
                                                 <ul>
 
-                                                    <li><a @if($price_min_selected == null) style="color: black;" @endif href="#">All</a></li>
+                                                    <li><a @if($price_min_selected === null ) style="color: black;" @endif href="#">All</a></li>
                                                     @foreach($level_price as $price)
                                                         <li><a @if($price_min_selected == $price && $price_min_selected != null) style="color: black;"  @endif   href="{{"shop?price_min=".$price."&price_max=".$price+500}}">${{$price}} - ${{$price+500}}</a></li>
                                                     @endforeach
@@ -200,7 +200,7 @@
                                     </div>
                                     <div class="product__item__text">
                                         <h6>{{$product->name }}</h6>
-                                        <a href="#" class="add-cart">+ Add To Cart</a>
+                                        <a href="{{asset('add-to-cart?id='.$product->id)}}" class="add-cart">+ Add To Cart {{$product->id}}</a>
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>

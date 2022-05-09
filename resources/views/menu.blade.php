@@ -51,11 +51,11 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{asset('../')}}">Trang chủ</a></li>
-                        <li><a href="{{asset('/shop')}}">Sản phẩm</a></li>
+                        <li class="active"><a href="{{asset('../')}}">Home</a></li>
+                        <li><a href="{{asset('/shop')}}">Product</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
-                                <li><a href="./about.html">Giới thiệu</a></li>
+                                <li><a href="./about.html">About Us</a></li>
                                 <li><a href="shop-details.html">Shop Details</a></li>
                                 <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                 <li><a href="./checkout.html">Check Out</a></li>
@@ -71,7 +71,7 @@
                 <div class="header__nav__option">
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
                     <a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a>
-                    <a href="#"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
+                    <a href="{{asset('/cart')}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
                     <div class="price">$0.00</div>
                 </div>
             </div>
@@ -104,37 +104,37 @@
                     <div class="footer__logo">
                         <a href="#"><img src="img/footer-logo.png" alt=""></a>
                     </div>
-                    <p>Khác biệt tạo lên thương hiệu.</p>
+                    <p>Difference creates brand.</p>
                     <a href="#"><img src="img/payment.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Mua sắm</h6>
+                    <h6>Shopping</h6>
                     <ul>
                         <li><a href="#">Iphone</a></li>
                         <li><a href="#">Ipad</a></li>
                         <li><a href="#">Apple watch</a></li>
-                        <li><a href="#">Khuyến mãi</a></li>
+                        <li><a href="#">Sell</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Khác</h6>
+                    <h6>Other</h6>
                     <ul>
 
-                        <li><a href="#">Phương thức thanh toán</a></li>
-                        <li><a href="#">Vận chuyển</a></li>
+                        <li><a href="#">Payment method</a></li>
+                        <li><a href="#">delivery</a></li>
 
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Liên hệ</h6>
+                    <h6>Contact</h6>
                     <div class="footer__newslatter">
-                        <p>Quảng cáo liên hệ hotline : 0899305432</p>
+                        <p>Email : </p>
                         <form action="#">
                             <input type="text" placeholder="Your email">
                             <button type="submit"><span class="icon_mail_alt"></span></button>
