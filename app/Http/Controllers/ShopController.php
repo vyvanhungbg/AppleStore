@@ -11,9 +11,11 @@ class ShopController extends Controller
     public function index(Request $request)
     {
 
+
         $categories = DB::table('product_category')->get();
         $products = Product::query();
-        $category_selected = '';
+        $category_selected = null;
+
         if ($request->has('category')) {
             $category_selected = $request->input('category');
             $products->join('product_category', 'product_category.id', '=', 'product.type')
@@ -21,13 +23,24 @@ class ShopController extends Controller
         }
 
 
+        $price_min_selected = null;
+        $price_max = null;
+        $price_min = null;
         if($request->has('price_max') && $request->has('price_min')){
+
             $price_min = $request->input('price_min');
+            $price_min_selected = $price_min;
             $price_max = $request->input('price_max');
             $products->whereBetween('price',[$price_min,$price_max]);
         }
 
-        $products = $products->paginate(8);
+        $products = $products->paginate(6);
+
+        $products->appends([
+            'category' => $category_selected,
+            'price_max' => $price_max,
+            'price_min' => $price_min,
+        ]);
 
 
         // list price
@@ -47,6 +60,9 @@ class ShopController extends Controller
             'products' => $products,
             'level_price' => $level_price,
             'category_selected' => $category_selected,
+            'price_min_selected' => $price_min_selected,
         ]);
     }
+
+
 }

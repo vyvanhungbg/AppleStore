@@ -19,6 +19,8 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
+
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}" type="text/css">
     <link rel="stylesheet" href="{{asset("css/font-awesome.min.css")}}" type="text/css">

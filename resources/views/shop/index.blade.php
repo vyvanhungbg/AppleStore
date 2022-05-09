@@ -39,11 +39,11 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
                                     </div>
-                                    <div id="collapseOne" class="collapse " data-parent="#accordionExample">
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    <li><a href="shop">All</a></li>
+                                                    <li><a @if(strcmp($category_selected , null)===0 ) style="color: black;"  @endif href="shop">All</a></li>
                                                     @foreach($categories as $category)
                                                         <li><a @if(!strcmp($category_selected , $category->name)) style="color: black;"  @endif href="{{"shop?category=".$category->name}}">{{$category->name}}</a></li>
                                                     @endforeach
@@ -57,61 +57,61 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
                                     </div>
-                                    <div id="collapseThree" class="collapse " data-parent="#accordionExample">
+                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">All</a></li>
+
+                                                    <li><a @if($price_min_selected == null) style="color: black;" @endif href="#">All</a></li>
                                                     @foreach($level_price as $price)
-                                                        <li><a  href="{{"shop?price_min=".$price."&price_max=".$price+500}}">${{$price}} - ${{$price+500}}</a></li>
+                                                        <li><a @if($price_min_selected == $price && $price_min_selected != null) style="color: black;"  @endif   href="{{"shop?price_min=".$price."&price_max=".$price+500}}">${{$price}} - ${{$price+500}}</a></li>
                                                     @endforeach
 
-<!--                                                    --><?php //print_r($request->input('category')) ?>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseFour">Size</a>
-                                    </div>
-                                    <div id="collapseFour" class="collapse " data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__size">
-                                                <label for="xs">xs
-                                                    <input type="radio" id="xs">
-                                                </label>
-                                                <label for="sm">s
-                                                    <input type="radio" id="sm">
-                                                </label>
-                                                <label for="md">m
-                                                    <input type="radio" id="md">
-                                                </label>
-                                                <label for="xl">xl
-                                                    <input type="radio" id="xl">
-                                                </label>
-                                                <label for="2xl">2xl
-                                                    <input type="radio" id="2xl">
-                                                </label>
-                                                <label for="xxl">xxl
-                                                    <input type="radio" id="xxl">
-                                                </label>
-                                                <label for="3xl">3xl
-                                                    <input type="radio" id="3xl">
-                                                </label>
-                                                <label for="4xl">4xl
-                                                    <input type="radio" id="4xl">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-heading">--}}
+{{--                                        <a data-toggle="collapse" data-target="#collapseFour">Size</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div id="collapseFour" class="collapse show" data-parent="#accordionExample">--}}
+{{--                                        <div class="card-body">--}}
+{{--                                            <div class="shop__sidebar__size">--}}
+{{--                                                <label for="xs">xs--}}
+{{--                                                    <input type="radio" id="xs">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="sm">s--}}
+{{--                                                    <input type="radio" id="sm">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="md">m--}}
+{{--                                                    <input type="radio" id="md">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="xl">xl--}}
+{{--                                                    <input type="radio" id="xl">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="2xl">2xl--}}
+{{--                                                    <input type="radio" id="2xl">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="xxl">xxl--}}
+{{--                                                    <input type="radio" id="xxl">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="3xl">3xl--}}
+{{--                                                    <input type="radio" id="3xl">--}}
+{{--                                                </label>--}}
+{{--                                                <label for="4xl">4xl--}}
+{{--                                                    <input type="radio" id="4xl">--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <div class="card">
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
                                     </div>
-                                    <div id="collapseFive" class="collapse " data-parent="#accordionExample">
+                                    <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
                                                 <label class="c-1" for="sp-1">
@@ -149,7 +149,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                     </div>
-                                    <div id="collapseSix" class="collapse " data-parent="#accordionExample">
+                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 <a href="#">Pro</a>
