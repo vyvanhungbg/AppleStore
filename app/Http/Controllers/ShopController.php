@@ -27,7 +27,7 @@ class ShopController extends Controller
             $products->whereBetween('price',[$price_min,$price_max]);
         }
 
-        $products = $products->get();
+        $products = $products->paginate(8);
 
 
         // list price

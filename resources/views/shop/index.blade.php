@@ -39,7 +39,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
                                     </div>
-                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div id="collapseOne" class="collapse " data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
@@ -57,7 +57,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
                                     </div>
-                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div id="collapseThree" class="collapse " data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
@@ -76,7 +76,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseFour">Size</a>
                                     </div>
-                                    <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                    <div id="collapseFour" class="collapse " data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__size">
                                                 <label for="xs">xs
@@ -111,7 +111,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
                                     </div>
-                                    <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                    <div id="collapseFive" class="collapse " data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
                                                 <label class="c-1" for="sp-1">
@@ -149,7 +149,7 @@
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                     </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                    <div id="collapseSix" class="collapse " data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 <a href="#">Pro</a>
@@ -226,17 +226,8 @@
                         @endforeach
 
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="product__pagination">
-                                <a class="active" href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <span>...</span>
-                                <a href="#">21</a>
-                            </div>
-                        </div>
-                    </div>
+
+                    {{ $products->links('shop.my_pagination') }}
                 </div>
             </div>
         </div>
