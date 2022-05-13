@@ -28,6 +28,7 @@ class CartController extends Controller
 
         //return view('cart.index');
        // header('location:shop');
+        return redirect()->route('shop');
     }
 
     public function index(){

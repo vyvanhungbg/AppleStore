@@ -18,12 +18,14 @@ class ShopController extends Controller
 
         if ($request->has('category')) {
             $category_selected = $request->input('category');
+
             $products->join('product_category', 'product_category.id', '=', 'product.type')
                 ->where('product_category.name',$category_selected);
         }
 
 
         $price_min_selected = null;
+        $price_max_selected = null;
         $price_max = null;
         $price_min = null;
         if($request->has('price_max') && $request->has('price_min')){
@@ -31,7 +33,14 @@ class ShopController extends Controller
             $price_min = $request->input('price_min');
             $price_min_selected = $price_min;
             $price_max = $request->input('price_max');
+            $price_max_selected = $price_max;
             $products->whereBetween('price',[$price_min,$price_max]);
+        }
+
+        $tag_selected = null;
+        if($request->has('tag')){
+            $tag_selected = $request->input('tag');
+            $products->where('product.name', 'like','%'.$tag_selected.'%');
         }
 
         $products = $products->paginate(6);
@@ -40,6 +49,7 @@ class ShopController extends Controller
             'category' => $category_selected,
             'price_max' => $price_max,
             'price_min' => $price_min,
+            'tag' => $tag_selected,
         ]);
 
 
@@ -55,12 +65,23 @@ class ShopController extends Controller
             $level_price[] = $i;
 
 
+//        $params = array_merge([
+//            'category' => $category_selected,
+//            'price_max' => $price_max,
+//            'price_min' => $price_min,
+//            'tags' => $tags
+//        ]);
+//
+//        $new_query_string = http_build_query( $params );
+
         return view("shop.index",data :[
             'categories' => $categories,
             'products' => $products,
             'level_price' => $level_price,
             'category_selected' => $category_selected,
             'price_min_selected' => $price_min_selected,
+            'price_max_selected' => $price_max_selected,
+            'tag_selected' =>$tag_selected,
         ]);
     }
 
