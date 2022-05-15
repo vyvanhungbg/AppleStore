@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopController;
@@ -36,3 +37,9 @@ Route::get('/cart',
 
 Route::get('/add-to-cart',
     action : [CartController::class,'update_cart']);
+
+Route::get('/admin',
+    action : [AdminController::class,'index'])->name('admin');
+
+Route::get('/customer',
+    action : [AdminController::class,'customer'])->name('customer');
