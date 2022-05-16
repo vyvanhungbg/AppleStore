@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 05:07 AM
+-- Generation Time: May 16, 2022 at 02:27 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,6 +109,31 @@ INSERT INTO `management_image_banner` (`id`, `url`, `header`, `title`, `content`
 (6, 'bg3.jpg', 'Sản phẩm nổi bật', ' iPad Air thế hệ thứ 5', 'Vào ngày  9/3/2022.Trong sự kiện có tên gọi Peek Performance Apple đã chính thức giới thiệu iPad Air thế hệ thứ 5.Sản phẩm iPad mới sẽ sử dụng chip Apple Silicon M1 tương tự như iPad Pro. Đặc biệt, iPad Air cũng có đến 5 màu cho người dùng nhiều sự lựa chọn hơn.'),
 (7, 'bg4.jpg', 'Sản phẩm nổi bật', 'Apple Watch Series 7', 'Sau khi công bố 2 chiếc iPad mới, Apple đã chính thức giới thiệu chiếc đồng hồ Apple Watch Series 7 tại sự kiện lớn ngày 14/9. Thế hệ smartwatch 7 với màn hình lớn và thiết bị sẽ hỗ trợ watchOS 8 với tính năng phát hiện ngã khi đạp xe, tối ưu hóa theo dõi quá trình tập luyện bằng xe đạp điện'),
 (8, 'bg5.jpg', 'Sản phẩm nổi bật', 'Apple TV 4K ', 'Tại sự kiện Apple Spring Loaded vào 4/2021.Apple đã giới thiệu sản phẩm Apple TV 4K với những nâng cấp nổi bật trên sản phẩm gồm chip xử lý A12 Bionic, hỗ trợ nội dung HDR với tốc độ khung hình cao, khả năng sử dụng iPhone (sử dụng cảm biến ánh sáng gọi là tính năng Colour balance feature).');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `management_site`
+--
+
+CREATE TABLE `management_site` (
+  `logo_brand` varchar(256) NOT NULL,
+  `name_brand` varchar(256) NOT NULL,
+  `title_website` varchar(256) NOT NULL,
+  `logo_website` varchar(256) NOT NULL,
+  `footer_information_left` varchar(256) NOT NULL,
+  `footer_information_center` varchar(256) NOT NULL,
+  `footer_information_right` varchar(256) NOT NULL,
+  `footer_information_bottom` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `management_site`
+--
+
+INSERT INTO `management_site` (`logo_brand`, `name_brand`, `title_website`, `logo_website`, `footer_information_left`, `footer_information_center`, `footer_information_right`, `footer_information_bottom`) VALUES
+('LogoN-White.png', 'My store', 'My store', 'LogoN-Black.png', 'a', 'a', 'a', 'Copyright © 2020 KhanhNhu\'s N-BUY. All rights reserved.'),
+('LogoN-White.png', 'My store', 'My store', 'LogoN-Black.png', 'a', 'a', 'a', 'Copyright © 2020 KhanhNhu\'s N-BUY. All rights reserved.');
 
 -- --------------------------------------------------------
 
@@ -271,11 +296,86 @@ INSERT INTO `product_category` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_category_information`
+--
+
+CREATE TABLE `product_category_information` (
+  `id_category` int(11) NOT NULL,
+  `display` int(11) NOT NULL COMMENT 'Màn hình',
+  `operating_system` int(11) NOT NULL COMMENT 'Hệ điều hành',
+  `front_camera` int(11) NOT NULL COMMENT 'Cam trước',
+  `rear_camera` int(11) NOT NULL COMMENT 'Cam sau',
+  `cpu` int(11) NOT NULL COMMENT 'CPU',
+  `ram` int(11) NOT NULL COMMENT 'RAM',
+  `rom` int(11) NOT NULL COMMENT 'ROM',
+  `battery` int(11) NOT NULL COMMENT 'Pin',
+  `security` int(11) NOT NULL COMMENT 'Bảo mật',
+  `charging_port` int(11) NOT NULL COMMENT 'Cổng sạc',
+  `compatible` int(11) NOT NULL COMMENT 'Tương thích',
+  `sound_technology` int(11) NOT NULL COMMENT 'Công nghệ âm thnah',
+  `used_time` int(11) NOT NULL COMMENT 'Thời gian sử dụng',
+  `connect` int(11) NOT NULL COMMENT 'Kết nối',
+  `weight` int(11) NOT NULL COMMENT 'Trọng lượng',
+  `brand` int(11) NOT NULL COMMENT 'Thương hiệu',
+  `made_in` int(11) NOT NULL COMMENT 'Sản xuất tại',
+  `hard_drive` int(11) NOT NULL COMMENT 'Ổ cứng',
+  `graphic_card` int(11) NOT NULL COMMENT 'Card đồ hoạ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_category_information`
+--
+
+INSERT INTO `product_category_information` (`id_category`, `display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
+(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0),
+(2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1),
+(4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+(12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_category_name`
+--
+
+CREATE TABLE `product_category_name` (
+  `display` varchar(256) NOT NULL COMMENT 'Màn hình',
+  `operating_system` varchar(256) NOT NULL COMMENT 'Hệ điều hành',
+  `front_camera` varchar(256) NOT NULL COMMENT 'Cam trước',
+  `rear_camera` varchar(256) NOT NULL COMMENT 'Cam sau',
+  `cpu` varchar(256) NOT NULL COMMENT 'CPU',
+  `ram` varchar(256) NOT NULL COMMENT 'RAM',
+  `rom` varchar(256) NOT NULL COMMENT 'ROM',
+  `battery` varchar(256) NOT NULL COMMENT 'Pin',
+  `security` varchar(256) NOT NULL COMMENT 'Bảo mật',
+  `charging_port` varchar(256) NOT NULL COMMENT 'Cổng sạc',
+  `compatible` varchar(256) NOT NULL COMMENT 'Tương thích',
+  `sound_technology` varchar(256) NOT NULL COMMENT 'Công nghệ âm thnah',
+  `used_time` varchar(256) NOT NULL COMMENT 'Thời gian sử dụng',
+  `connect` varchar(256) NOT NULL COMMENT 'Kết nối',
+  `weight` varchar(256) NOT NULL COMMENT 'Trọng lượng',
+  `brand` varchar(256) NOT NULL COMMENT 'Thương hiệu',
+  `made_in` varchar(256) NOT NULL COMMENT 'Sản xuất tại',
+  `hard_drive` varchar(256) NOT NULL COMMENT 'Ổ cứng',
+  `graphic_card` varchar(256) NOT NULL COMMENT 'Card đồ hoạ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_category_name`
+--
+
+INSERT INTO `product_category_name` (`display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
+('Display', 'OS', 'Front camera', 'Rear camera', 'CPU', 'RAM', 'ROM', 'Battery', 'Security', 'Charging port', 'Compatible', 'Sound technology', 'Used time', 'Connect', 'Weight', 'Brand', 'Made in', 'Hard drive', 'Graphic card'),
+('Display', 'OS', 'Front camera', 'Rear camera', 'CPU', 'RAM', 'ROM', 'Battery', 'Security', 'Charging port', 'Compatible', 'Sound technology', 'Used time', 'Connect', 'Weight', 'Brand', 'Made in', 'Hard drive', 'Graphic card');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product_images`
 --
 
 CREATE TABLE `product_images` (
-  `id` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `url` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -284,44 +384,44 @@ CREATE TABLE `product_images` (
 -- Dumping data for table `product_images`
 --
 
-INSERT INTO `product_images` (`id`, `id_product`, `url`) VALUES
-(1, 59, '11-green.jpg'),
-(2, 59, '36944_iphone11_white_select_2019.jpg'),
-(3, 59, '637037652457717299_11-den.png'),
-(4, 60, '637037652457717299_11-den.png'),
-(5, 60, '637037687763926758_11-pro-max-xanh.png'),
-(6, 61, 'iphone-11-pro-hai-phong-01.jpg'),
-(7, 62, '4512fe9898661b5f3746f91370a22158.jpg'),
-(8, 62, 'ip12-6.jpg'),
-(9, 62, 'iphone-x-silver-2.jpg'),
-(10, 63, '4512fe9898661b5f3746f91370a22158.jpg'),
-(11, 63, 'ip12-2.jpg'),
-(12, 63, 'xs-max-vang-86d20f37-92ab-4803-9b02-1ba2726618bf.png'),
-(13, 64, 'iphone-8-plus-128gb-082720-052716-600x600.jpg'),
-(14, 64, 'iphone-8-plus-red_0ef9f18c7adc499a82af3cdbc45b9ecc_grande.jpg'),
-(15, 65, '636836609818617272_ip7-plus-hong-1.png'),
-(16, 65, 'ip7p-32.jpg'),
-(17, 66, '61AK3IeXApL._AC_SX466_.jpg'),
-(18, 66, '61is5y-+MeL._AC_SL1500_.jpg'),
-(19, 67, '61AK3IeXApL._AC_SX466_.jpg'),
-(20, 67, '61is5y-+MeL._AC_SL1500_.jpg'),
-(21, 68, 'ipadmini5-jpeg-e0657da8-586e-4978-bd63-12022162a565.jpg'),
-(22, 68, 'silver_wifi.png'),
-(23, 69, '1573663014_1520445.jpg'),
-(24, 69, 'apple-macbook-air-2020-vântay-220173-600x600.jpg'),
-(25, 70, '726b328e-be3b-4df3-8f27-339819336fb6.jpg'),
-(26, 70, '38257_apple_macbook_air_mvh52_1_1.jpg'),
-(27, 70, 'apple-macbook-air-2020-vântay-220173-600x600.jpg'),
-(28, 71, '600_thumb_airpodpro.jpg'),
-(29, 71, 'MWP22.jpg'),
-(30, 72, 'apple-airpods-2-with-wireless-charging-case-mrxj2zm-a-white-21032019-01-p.jpg'),
-(31, 72, 'MWP22.jpg'),
-(32, 71, ''),
-(33, 61, 'ip12-4 (1).jpg'),
-(34, 62, ''),
-(35, 73, '6ad8968a4381df1db9ee7a5fda58eec7.jpg'),
-(36, 73, '11-green.jpg'),
-(37, 73, '600_ip_X_gray_800x800_2.jpg');
+INSERT INTO `product_images` (`id_product`, `url`) VALUES
+(59, '11-green.jpg'),
+(59, '36944_iphone11_white_select_2019.jpg'),
+(59, '637037652457717299_11-den.png'),
+(60, '637037652457717299_11-den.png'),
+(60, '637037687763926758_11-pro-max-xanh.png'),
+(61, 'iphone-11-pro-hai-phong-01.jpg'),
+(62, '4512fe9898661b5f3746f91370a22158.jpg'),
+(62, 'ip12-6.jpg'),
+(62, 'iphone-x-silver-2.jpg'),
+(63, '4512fe9898661b5f3746f91370a22158.jpg'),
+(63, 'ip12-2.jpg'),
+(63, 'xs-max-vang-86d20f37-92ab-4803-9b02-1ba2726618bf.png'),
+(64, 'iphone-8-plus-128gb-082720-052716-600x600.jpg'),
+(64, 'iphone-8-plus-red_0ef9f18c7adc499a82af3cdbc45b9ecc_grande.jpg'),
+(65, '636836609818617272_ip7-plus-hong-1.png'),
+(65, 'ip7p-32.jpg'),
+(66, '61AK3IeXApL._AC_SX466_.jpg'),
+(66, '61is5y-+MeL._AC_SL1500_.jpg'),
+(67, '61AK3IeXApL._AC_SX466_.jpg'),
+(67, '61is5y-+MeL._AC_SL1500_.jpg'),
+(68, 'ipadmini5-jpeg-e0657da8-586e-4978-bd63-12022162a565.jpg'),
+(68, 'silver_wifi.png'),
+(69, '1573663014_1520445.jpg'),
+(69, 'apple-macbook-air-2020-vântay-220173-600x600.jpg'),
+(70, '726b328e-be3b-4df3-8f27-339819336fb6.jpg'),
+(70, '38257_apple_macbook_air_mvh52_1_1.jpg'),
+(70, 'apple-macbook-air-2020-vântay-220173-600x600.jpg'),
+(71, '600_thumb_airpodpro.jpg'),
+(71, 'MWP22.jpg'),
+(72, 'apple-airpods-2-with-wireless-charging-case-mrxj2zm-a-white-21032019-01-p.jpg'),
+(72, 'MWP22.jpg'),
+(71, ''),
+(61, 'ip12-4 (1).jpg'),
+(62, ''),
+(73, '6ad8968a4381df1db9ee7a5fda58eec7.jpg'),
+(73, '11-green.jpg'),
+(73, '600_ip_X_gray_800x800_2.jpg');
 
 -- --------------------------------------------------------
 
@@ -405,6 +505,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `lv` int(11) NOT NULL,
   `birthday` datetime NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
   `create_time` datetime NOT NULL,
   `last_updated` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -413,13 +514,13 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `fullname`, `email`, `password`, `lv`, `birthday`, `create_time`, `last_updated`) VALUES
-(1, 'admin', 'Luong Van Nhu', 'luongvannhu@gmail.com', '1', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'khanhnhu', 'Luong Khanh Nhu', 'khanhnhu@gmail.com', '1', 100, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2020-10-12 14:24:55'),
-(5, 'thinhu123', 'Lương Thị Như', 'luongthinhu@gmail.com', '789', 15, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2020-10-12 14:30:13'),
-(7, 'Nhu', 'Như', 'nhu@gmail.com', 'nhu123456', 15, '0000-00-00 00:00:00', '2020-09-12 11:51:17', '2020-10-12 14:32:11'),
-(8, 'nhu123', 'nhu', 'nhu123@gmail.com', '123456789', 15, '0000-00-00 00:00:00', '2020-09-25 02:41:12', '2020-10-12 14:32:47'),
-(9, 'khanhnhu123', 'Nhu', 'luongvannhu2512@gmail.com', 'khanhnhu2', 15, '0000-00-00 00:00:00', '2020-09-29 09:25:02', '2020-10-12 14:33:10');
+INSERT INTO `user` (`id`, `username`, `fullname`, `email`, `password`, `lv`, `birthday`, `status`, `create_time`, `last_updated`) VALUES
+(1, 'admin', 'Luong Van Nhu', 'luongvannhu@gmail.com', '1', 1, '2001-05-23 08:34:14', 1, '2022-05-19 08:34:14', '2022-05-26 08:34:14'),
+(2, 'khanhnhu', 'Luong Khanh Nhu', 'khanhnhu@gmail.com', '1', 100, '1996-05-23 08:50:30', 1, '2022-05-11 08:50:30', '2020-10-28 14:24:55'),
+(5, 'thinhu123', 'Lương Thị Như', 'luongthinhu@gmail.com', '789', 15, '0000-00-00 00:00:00', 1, '0000-00-00 00:00:00', '2020-10-12 14:30:13'),
+(7, 'Nhu', 'Như', 'nhu@gmail.com', 'nhu123456', 15, '0000-00-00 00:00:00', 1, '2020-09-12 11:51:17', '2020-10-12 14:32:11'),
+(8, 'nhu123', 'nhu', 'nhu123@gmail.com', '123456789', 15, '0000-00-00 00:00:00', 1, '2020-09-25 02:41:12', '2020-10-12 14:32:47'),
+(9, 'khanhnhu123', 'Nhu', 'luongvannhu2512@gmail.com', 'khanhnhu2', 15, '0000-00-00 00:00:00', 1, '2020-09-29 09:25:02', '2020-10-12 14:33:10');
 
 -- --------------------------------------------------------
 
@@ -518,10 +619,15 @@ ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_category_information`
+--
+ALTER TABLE `product_category_information`
+  ADD PRIMARY KEY (`id_category`);
+
+--
 -- Indexes for table `product_images`
 --
 ALTER TABLE `product_images`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `id_product` (`id_product`);
 
 --
@@ -592,12 +698,6 @@ ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `product_images`
---
-ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
@@ -633,6 +733,12 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`type`) REFERENCES `product_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `product_category_information`
+--
+ALTER TABLE `product_category_information`
+  ADD CONSTRAINT `product_category_information_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `product_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `product_images`
 --
 ALTER TABLE `product_images`
@@ -643,12 +749,6 @@ ALTER TABLE `product_images`
 --
 ALTER TABLE `product_information`
   ADD CONSTRAINT `product_information_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `user_level`
---
-ALTER TABLE `user_level`
-  ADD CONSTRAINT `user_level_ibfk_1` FOREIGN KEY (`id_lv`) REFERENCES `user` (`lv`);
 
 --
 -- Constraints for table `user_permissions`

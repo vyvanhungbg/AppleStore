@@ -1,13 +1,13 @@
 <?php
 
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\ProductManagerController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ShopController;
-use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductDetailsController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,5 +41,13 @@ Route::get('/add-to-cart',
 Route::get('/admin',
     action : [AdminController::class,'index'])->name('admin');
 
-Route::get('/customer',
+Route::get('/admin-customer',
     action : [AdminController::class,'customer'])->name('customer');
+
+
+// Product manager
+Route::get('/admin-product',
+    action : [ProductManagerController::class,'index'])->name('admin-product');
+
+Route::get('/admin-product-insert',
+    action : [ProductManagerController::class,'insert'])->name('admin-product-insert');
