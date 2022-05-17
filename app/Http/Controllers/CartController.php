@@ -9,7 +9,7 @@ use function Sodium\add;
 class CartController extends Controller
 {
     //
-    public function update_cart(Request $request)
+    public function add_to_cart(Request $request)
     {
 
         session_start();
@@ -28,6 +28,27 @@ class CartController extends Controller
 
         //return view('cart.index');
        // header('location:shop');
+        return redirect()->route('shop');
+    }
+
+
+    public function update_to_cart(Request $request)
+    {
+
+        session_start();
+        $id = $_GET['id'];
+        $type = $_GET['type'];
+        if($type === 'decre'){
+            if($_SESSION['cart'][$id] > 1){
+                $_SESSION['cart'][$id]--;
+            }else{
+                unset($_SESSION['cart'][$id]);
+            }
+        }else{
+            $_SESSION['cart'][$id]++;
+        }
+        //return view('cart.index');
+        // header('location:shop');
         return redirect()->route('shop');
     }
 

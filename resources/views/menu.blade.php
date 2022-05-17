@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+
 </head>
 <body>
 
@@ -187,6 +188,43 @@
                 alert("Đã thêm "+name+"  vào giỏ hàng");
             }).fail(function () {
                 alert("Thêm sản phẩm"+name+" thất bại ");
+            });
+        });
+    });
+
+    $(document).ready(function(){
+
+        $(".btn-update-quantity").click(function(){
+            let btn_update = $(this);
+            let id = $(this).data('id');
+            let type = $(this).data('type');
+            $.ajax({
+                url: '{{route('update_to_cart')}}',
+                type: 'GET',
+                data: {id,type}
+            }).done(function () {
+               // alert("Đã thêm "+name+"  vào giỏ hàng");
+                let parent_tr = btn_update.parents('tr');
+                let price = parent_tr.find(".span-price").text()
+                let quantity = parent_tr.find(".span-quantity").text();
+                if(type === 'incre'){
+                    quantity++;
+                }else if(type === 'decre'){
+                    quantity--;
+                }
+                //alert("Đã thêm "+type+"  vào giỏ hàng");
+                if(quantity ==0){
+                    parent_tr.remove();
+                }else {
+                    parent_tr.find(".span-quantity").text(quantity);
+                    let sum = price*quantity;
+                    console.log(sum);
+                    parent_tr.find(".span-total-price").text(sum);
+                }
+
+
+            }).fail(function () {
+                //alert("Thêm sản phẩm"+name+" thất bại ");
             });
         });
     });

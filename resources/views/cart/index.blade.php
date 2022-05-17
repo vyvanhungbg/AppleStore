@@ -36,6 +36,7 @@
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th>Mua</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -49,18 +50,22 @@
                                     </div>
                                     <div class="product__cart__item__text">
                                         <h6>{{$product->name}}</h6>
-                                        <h5>{{$product->getProductPrice()}}</h5>
+                                        <h5><span class="span-price">{{$product->price}}</span></h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
                                     <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="{{$cart[$product->id]}}">
+                                        <div class="row">
+                                            <div class="btn-update-quantity" data-id="{{$product->id}}" data-type="decre" ><i class="fas fa-minus"></i></div>
+                                            <div style="margin-left:10px;margin-right:10px;" ><span class="span-quantity">{{$cart[$product->id]}}</span></div>
+                                            <div class="btn-update-quantity" data-id="{{$product->id}}" data-type="incre"><i class="fas fa-plus"></i></div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">{{$product->getProductPrice()}}</td>
+                                <td class="cart__price"><span class="span-total-price">{{$product->price*$cart[$product->id]}}</span></td>
+                                <td class="cart__checkbox"><input type="checkbox" name=""></td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
+
                             </tr>
                         @endforeach
 
