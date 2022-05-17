@@ -36,7 +36,7 @@ Route::get('/cart',
     action : [CartController::class,'index'])->name('cart');
 
 Route::get('/add-to-cart',
-    action : [CartController::class,'update_cart']);
+    action : [CartController::class,'update_cart'])->name('add_to_cart');
 
 Route::get('/admin',
     action : [AdminController::class,'index'])->name('admin');

@@ -18,9 +18,9 @@ class ShopController extends Controller
 
         if ($request->has('category')) {
             $category_selected = $request->input('category');
+            $name_category = DB::table('product_category')->where('name', 'like', $category_selected)->first();
 
-            $products->join('product_category', 'product_category.id', '=', 'product.type')
-                ->where('product_category.name',$category_selected);
+            $products->where('type','=',$name_category->id);
         }
 
 

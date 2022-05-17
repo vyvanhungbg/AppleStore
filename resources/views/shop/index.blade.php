@@ -164,8 +164,8 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6>{{$product->name }}</h6>
-                                        <a href="{{asset('add-to-cart?id='.$product->id)}}" class="add-cart">+ Add To Cart</a>
+                                        <h6   data-name_add_to_cart ={{$product->name}}>{{$product->name }}</h6>
+                                        <a data-id_add_to_cart ="{{$product->id}}" data-name_add_to_cart ="{{$product->name}}"     class="add-cart">+ Add To Cart</a>
                                         <div class="rating">
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>

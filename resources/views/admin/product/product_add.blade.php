@@ -50,10 +50,10 @@
                                     <div class="form-group">
                                         <label for="inputStatus">Product Category</label>
                                         <select id="inputStatus" class="form-control custom-select">
-                                            <option selected="" disabled="">Select one</option>
-                                            <option>On Hold</option>
-                                            <option>Canceled</option>
-                                            <option>Success</option>
+                                        @foreach($categories as $category)
+{{--                                                <option selected="" disabled="">Select one</option>--}}
+                                                <option name="{{ $category->id}}">{{$category->name}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -75,7 +75,7 @@
                     <div class="col-md-6">
                         <div class="card card-secondary">
                             <div class="card-header">
-                                <h3 class="card-title">Budget</h3>
+                                <h3 class="card-title">Image for product</h3>
 
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

@@ -172,6 +172,24 @@
 <script src="{{asset("js/mixitup.min.js")}}"></script>
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
 
+        $(".add-cart").click(function(){
+            let id = $(this).data('id_add_to_cart');
+            let name = $(this).data('name_add_to_cart');
+            $.ajax({
+                url: '{{route('add_to_cart')}}',
+                type: 'GET',
+                data: {id}
+            }).done(function () {
+                alert("Đã thêm "+name+"  vào giỏ hàng");
+            }).fail(function () {
+                alert("Thêm sản phẩm"+name+" thất bại ");
+            });
+        });
+    });
+</script>
 </body>
 </html>
