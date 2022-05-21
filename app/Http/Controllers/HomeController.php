@@ -35,14 +35,14 @@ class HomeController extends Controller
         $product_new_arrivals  = Product::query()
             ->where('quantity','>',0)
             ->where('status','=',1)
-            ->orderBy('create_time','desc')
+            ->orderBy('created_at','desc')
             ->limit(6)
             ->get();
 
         $product_hot_sales = Product::query()
             ->where('quantity','>',0)
             ->where('status','=',1)
-            ->orderBy('last_updated','desc')
+            ->orderBy('updated_at','desc')
             ->limit(6)
             ->get();
 

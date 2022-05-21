@@ -39,7 +39,7 @@
                         <div class="input-group input-group-sm" style="width: 250px;">
 
                             <div  style="margin-right:50px;">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin-product-insert')}}">
+                                <a class="btn btn-primary btn-sm" href="{{route('admin-product-create')}}">
                                     <i class="fas fa-folder">
                                     </i>
                                     Add

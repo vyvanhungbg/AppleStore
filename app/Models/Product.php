@@ -13,7 +13,7 @@ class Product extends Model
     use HasFactory;
     protected $table ='product';  // kết nói với bảng nào mặc định sẽ tự kết nối với bảng theo tên model (viết lower) +'s'
 
-
+    protected $fillable = ['name','description','image','type','price','quantity'];
     public function get_url_image():string
     {
         return "img/image-product/".$this->image;
@@ -21,6 +21,6 @@ class Product extends Model
 
     public function getProductPrice():string
     {
-        return "$".$this->price;
+        return $this->price;
     }
 }

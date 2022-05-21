@@ -37,34 +37,35 @@
                                     </button>
                                 </div>
                             </div>
-                            <form>
+                            <form id="form-create-product" method="POST" action="{{route('admin-product-store')}}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="inputName">Product Name</label>
-                                        <input type="text" id="inputProductName" class="form-control">
+                                        <input required type="text" name="name" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDescription">Product Description</label>
-                                        <textarea id="inputProductDescription" class="form-control" rows="4"></textarea>
+                                        <textarea  name="description" class="form-control" rows="4"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Product Category</label>
-                                        <select id="inputStatus" class="form-control custom-select">
+                                        <label for="type">Product Category</label>
+                                        <select name="type" class="form-control custom-select">
                                         @foreach($categories as $category)
 {{--                                                <option selected="" disabled="">Select one</option>--}}
-                                                <option name="{{ $category->id}}">{{$category->name}}</option>
+                                                <option value="{{ $category->id}}">{{$category->name}}</option>
                                         @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputClientCompany">Product Price</label>
-                                        <input type="text" id="inputProductPrice" class="form-control">
+                                        <input required type="number" min="0" name="price" class="form-control">
                                     </div>
 
 
                                     <div class="form-group">
-                                        <label for="inputProjectLeader">Project Quantity</label>
-                                        <input type="text" id="inputProjectLeader" class="form-control">
+                                        <label for="inputProductQuantity">Project Quantity</label>
+                                        <input required type="text" name="quantity" class="form-control">
                                     </div>
                                 </div>
                             </form>
@@ -89,7 +90,7 @@
                                 <table border="1" cellspacing="10px" cellpadding="10px">
                                     <tr>
                                         <td><label>Image main</label></td>
-                                        <td><input type="file" onchange="readURL(this,'image_preview_main');" /></td>
+                                        <td><input form="form-create-product" name='image' type="file" onchange="readURL(this,'image_preview_main');" /></td>
                                         <td> <img height="100px" width="100px" id="image_preview_main" src="#" alt="your image" /></td>
                                     </tr>
 
@@ -107,7 +108,7 @@
 
                                     <tr>
                                         <td><label>Image 3</label></td>
-                                        <td> <input type="file" onchange="readURL(this,'image_preview_3')" /></td>
+                                        <td> <input  type="file" onchange="readURL(this,'image_preview_3')" /></td>
                                         <td>  <img height="100px" width="100px" id="image_preview_3" src="#" alt="your image" /></td>
                                     </tr>
                                 </table>
@@ -121,7 +122,7 @@
                 <div class="row">
                     <div class="col-12">
                         <a href="#" class="btn btn-secondary">Cancel</a>
-                        <input type="submit" value="Create new Project" class="btn btn-success float-right">
+                        <input form="form-create-product" type="submit" value="Create new product" class="btn btn-success float-right">
                     </div>
                 </div>
             </section>

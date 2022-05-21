@@ -8,8 +8,8 @@
     <title>Document</title>
 
     <meta charset="UTF-8">
-    <meta name="description" content="Male_Fashion Template">
-    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="description" content="Apple store Template">
+    <meta name="keywords" content="Apple store, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Apple Store</title>
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
 
 </head>
 <body>
@@ -42,9 +43,10 @@
 <!-- Offcanvas Menu Begin -->
 
 
+    <div class="bg-white fixed-top shadow mb-5 bg-body rounded">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-3">
+        <div class="row ">
+            <div class="col-lg-2 col-md-2">
                 <div class="header__logo">
                     <a href="{{asset('../')}}"><img src="img/logo-header.png" alt=""></a>
                 </div>
@@ -52,8 +54,8 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="{{asset('../')}}">Home</a></li>
-                        <li><a href="{{asset('/shop')}}">Product</a></li>
+                        <li @if(Route::current()->getName() === 'home') class="active" @endif><a href="{{route('home')}}">Home</a></li>
+                        <li @if(Route::current()->getName() === 'shop') class="active" @endif><a href="{{route('shop')}}">Product</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./about.html">About Us</a></li>
@@ -63,25 +65,30 @@
                                 <li><a href="./blog-details.html">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li @if(Route::current()->getName() === 'contacts') class="active" @endif><a href="{{route('contacts')}}">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-4 col-md-4">
                 <div class="header__nav__option">
+                        @if (Illuminate\Support\Facades\Auth::check() === true)
+                            <a href="#">{{Auth::user()->fullname}}</a>
+                            <a href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
+                        @else
+                        <a href="{{asset('../login')}}">Sign In</a>
+                        @endif
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
-                    <a href="#"><img src="{{asset('img/icon/heart.png')}}" alt=""></a>
                     <a href="{{asset('/cart')}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
                     <div class="price">$0.00</div>
                 </div>
             </div>
         </div>
-        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+        <div class="canvas__open"><i class="fas fa-bars"></i></div>
+    </div>
     </div>
 </header>
 <!-- Header Section End -->
-
+<div  style ="margin-top:86px;"></div>
 @yield('content')
 
 
@@ -174,6 +181,8 @@
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>
 <script src="{{asset("js/main.js")}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+
 <script>
     $(document).ready(function(){
 

@@ -13,7 +13,7 @@
                                   <h6>{{$image_banner->header}}</h6>
                                   <h2>{{$image_banner->title}}</h2>
                                   <p>{{$image_banner->content}}</p>
-                                  <a href="#" class="primary-btn">Mua ngay <span class="arrow_right"></span></a>
+                                  <a href="#" class="primary-btn">Buy now <span class="arrow_right"></span></a>
                                   <div class="hero__social">
                                       <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                                       <a href="#"><i class="fa fa-twitter"></i></a>
@@ -101,41 +101,19 @@
 
 {{--            Phân chia theo 3 loại --}}
             @foreach($product_best_sell as $product)
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix  ">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="{{asset($product->get_url_image())}}">
-                        <span class="label">New</span>
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
-                            <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="../img/icon/search.png" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>{{$product->name }} </h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>{{$product->getProductPrice()}}</h5>
-                        <div class="product__color__select">
-                            <label for="pc-1">
-                                <input type="radio" id="pc-1">
-                            </label>
-                            <label class="active black" for="pc-2">
-                                <input type="radio" id="pc-2">
-                            </label>
-                            <label class="grey" for="pc-3">
-                                <input type="radio" id="pc-3">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix  ">--}}
+{{--                <div class="product__item sale">--}}
+{{--                    <div class="product__item__pic set-bg" data-setbg="{{asset($product->get_url_image())}}">--}}
+{{--                        <span class="label">New</span>--}}
+{{--                        <ul class="product__hover">--}}
+{{--                            <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>--}}
+{{--                            <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>--}}
+{{--                            <li><a href="#"><img src="../img/icon/search.png" alt=""></a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                    @include('product.product_basic')--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             @endforeach
 
@@ -148,32 +126,10 @@
                             <ul class="product__hover">
                                 <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                 <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="../img/icon/search.png" alt=""></a></li>
+                                <li><a href="{{route('details',parameters:['id'=>$product->id])}}"><img src="img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
-                        <div class="product__item__text">
-                            <h6>{{$product->name }} </h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>{{$product->getProductPrice()}}</h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
-                        </div>
+                        @include('product.product_basic')
                     </div>
                 </div>
 
@@ -187,32 +143,10 @@
                             <ul class="product__hover">
                                 <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
                                 <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="../img/icon/search.png" alt=""></a></li>
+                                <li><a href="{{route('details',parameters:['id'=>$product->id])}}"><img src="img/icon/search.png" alt=""></a></li>
                             </ul>
                         </div>
-                        <div class="product__item__text">
-                            <h6>{{$product->name }} </h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
-                            <div class="rating">
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <h5>{{$product->getProductPrice()}}</h5>
-                            <div class="product__color__select">
-                                <label for="pc-1">
-                                    <input type="radio" id="pc-1">
-                                </label>
-                                <label class="active black" for="pc-2">
-                                    <input type="radio" id="pc-2">
-                                </label>
-                                <label class="grey" for="pc-3">
-                                    <input type="radio" id="pc-3">
-                                </label>
-                            </div>
-                        </div>
+                        @include('product.product_basic')
                     </div>
                 </div>
 
@@ -271,7 +205,7 @@
 <!-- Categories Section End -->
 
 <!-- Instagram Section Begin -->
-<section class="instagram spad">
+<section class="instagram spad" style="margin-bottom: 200px">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -301,50 +235,50 @@
 <!-- Instagram Section End -->
 
 <!-- Latest Blog Section Begin -->
-<section class="latest spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <span>Latest News</span>
-                    <h2>Fashion New Trends</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>
-                        <h5>What Curling Irons Are The Best Ones</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="img/icon/calendar.png" alt=""> 21 February 2020</span>
-                        <h5>Eternity Bands Do Last Forever</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>
-                    <div class="blog__item__text">
-                        <span><img src="img/icon/calendar.png" alt=""> 28 February 2020</span>
-                        <h5>The Health Benefits Of Sunglasses</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{{--<section class="latest spad">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-12">--}}
+{{--                <div class="section-title">--}}
+{{--                    <span>Latest News</span>--}}
+{{--                    <h2>Fashion New Trends</h2>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6">--}}
+{{--                <div class="blog__item">--}}
+{{--                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-1.jpg"></div>--}}
+{{--                    <div class="blog__item__text">--}}
+{{--                        <span><img src="img/icon/calendar.png" alt=""> 16 February 2020</span>--}}
+{{--                        <h5>What Curling Irons Are The Best Ones</h5>--}}
+{{--                        <a href="#">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6">--}}
+{{--                <div class="blog__item">--}}
+{{--                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-2.jpg"></div>--}}
+{{--                    <div class="blog__item__text">--}}
+{{--                        <span><img src="img/icon/calendar.png" alt=""> 21 February 2020</span>--}}
+{{--                        <h5>Eternity Bands Do Last Forever</h5>--}}
+{{--                        <a href="#">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-4 col-md-6 col-sm-6">--}}
+{{--                <div class="blog__item">--}}
+{{--                    <div class="blog__item__pic set-bg" data-setbg="img/blog/blog-3.jpg"></div>--}}
+{{--                    <div class="blog__item__text">--}}
+{{--                        <span><img src="img/icon/calendar.png" alt=""> 28 February 2020</span>--}}
+{{--                        <h5>The Health Benefits Of Sunglasses</h5>--}}
+{{--                        <a href="#">Read More</a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 <!-- Latest Blog Section End -->
 
 
