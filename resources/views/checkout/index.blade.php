@@ -25,23 +25,14 @@
         <div class="container">
             <div class="checkout__form">
                 <form action="{{route('addOrder')}}" method="POST">
+                    @csrf
                     <div class="row" >
                         <div class="col-lg-8 col-md-6">
                             <h6 class="coupon__code">!!! Special price for each coupon code !!!</h6>
                             <h6 class="checkout__title">Billing Details</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text" name="fistname">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text" name="lastname">
-                                    </div>
-                                </div>
+                            <div class="checkout__input">
+                                <p>Fullname<span>*</span></p>
+                                <input type="text" name="fullname" placeholder="Fullname" class="checkout__input__add">
                             </div>
                             <div class="checkout__input">
                                 <p>Username<span>*</span></p>
@@ -71,16 +62,20 @@
                                 <h4 class="order__title">Your order</h4>
                                 <div class="checkout__order__products">Product <span>Total</span></div>
                                 <ul class="checkout__total__products">
+                                    <?php $total=0 ?>
                                     @foreach($products_in_cart as $product)
                                         <li>
-                                            {{$product->name}}
-                                            <span>$ {{$product->getProductPrice()}}</span>
+                                            {{$product->name}} ({{$cart[$product->id]}})
+                                            <span>$ {{$product->price*$cart[$product->id]}}</span>
                                         </li>
+                                        <?php
+                                        $total += $product->price*$cart[$product->id];
+                                        ?>
                                     @endforeach
                                 </ul>
                                 <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
+                                    <li>Subtotal <span>$ <?php echo $total ?></span></li>
+                                    <li>Total <span>$ <?php echo $total ?></span></li>
                                 </ul>
                                 <h5>Payment Methods</h5>
                                 <p>Choose a transactions</p>
@@ -94,7 +89,7 @@
                                         Paypal
                                     </div>
                                     <div class="">
-                                        <input type="radio" class="mr-3"  name="paymentMethod" id="Cash On Delivery">
+                                        <input type="radio" class="mr-3" value="cashOnDelivery"  name="paymentMethod" id="Cash On Delivery">
                                         Cash On Delivery
                                     </div>
                                 </div>

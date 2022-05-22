@@ -36,7 +36,7 @@ Route::get('/register',
 );
 
 Route::post('/register',
-    action : [loginController::class,'register']    
+    action : [loginController::class,'register']
 )->name('register');
 
 Route::post('/login',
@@ -64,7 +64,7 @@ Route::get('/update-to-cart',
 Route::get('/checkout',
     action : [CheckoutController::class,'index'])->name('checkout');
 
-Route::put('/order',
+Route::post('/order',
     action : [CheckoutController::class,'addOrder'])->name('addOrder');
 
 
@@ -84,6 +84,9 @@ Route::get('/admin-product-create',
 
 Route::post('/admin-product-store',
     action : [ProductManagerController::class,'store'])->name('admin-product-store');
+
+Route::get('/admin-product-delete',
+    action : [ProductManagerController::class,'delete'])->name('admin-product-delete');
 
 // detail
 Route::get('/details',

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2022 at 04:10 PM
+-- Generation Time: May 22, 2022 at 09:56 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.3.33
 
@@ -214,6 +214,7 @@ CREATE TABLE `order_list` (
   `total_price` float NOT NULL,
   `address` varchar(256) NOT NULL,
   `payment_method` varchar(256) NOT NULL,
+  `note` text NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -222,11 +223,11 @@ CREATE TABLE `order_list` (
 -- Dumping data for table `order_list`
 --
 
-INSERT INTO `order_list` (`username`, `id_order`, `fullname`, `email`, `phone_number`, `status`, `total_price`, `address`, `payment_method`, `created_at`, `updated_at`) VALUES
-('hyung', 162, 'hung', 's2@gmail.com', 899305432, 1, 6792, 'hanoi', 'on', '2022-05-18 08:50:41', '2022-05-18 08:50:41'),
-('KK', 163, 'Nguyễn Đăng Khánh', 'khanh42869@gmail.com', 899305432, 1, 1298, 'Thai Nguyen', 'cashOnDelivery', '2022-05-18 08:58:29', '2022-05-18 08:58:29'),
-('khanhxz', 168, 'Nguyễn Đăng Khánh', 'sss@gmail.com', 123345123, 1, 3398, 'Thai Nguyen', 'Visa', '2022-05-18 11:30:01', '2022-05-18 11:30:01'),
-('gutboykeoconvoi', 169, 'Vy Văn Hùng', 'sef123@gmail.com', 123654231, 1, 5497, 'Bac Giang', 'Visa', '2022-05-18 11:32:31', '2022-05-18 11:32:31');
+INSERT INTO `order_list` (`username`, `id_order`, `fullname`, `email`, `phone_number`, `status`, `total_price`, `address`, `payment_method`, `note`, `created_at`, `updated_at`) VALUES
+('hyung', 162, 'hung', 's2@gmail.com', 899305432, 1, 6792, 'hanoi', 'on', '', '2022-05-18 08:50:41', '2022-05-18 08:50:41'),
+('KK', 163, 'Nguyễn Đăng Khánh', 'khanh42869@gmail.com', 899305432, 1, 1298, 'Thai Nguyen', 'cashOnDelivery', '', '2022-05-18 08:58:29', '2022-05-18 08:58:29'),
+('khanhxz', 168, 'Nguyễn Đăng Khánh', 'sss@gmail.com', 123345123, 1, 3398, 'Thai Nguyen', 'Visa', '', '2022-05-18 11:30:01', '2022-05-18 11:30:01'),
+('gutboykeoconvoi', 169, 'Vy Văn Hùng', 'sef123@gmail.com', 123654231, 1, 5497, 'Bac Giang', 'Visa', '', '2022-05-18 11:32:31', '2022-05-18 11:32:31');
 
 -- --------------------------------------------------------
 
@@ -267,9 +268,7 @@ INSERT INTO `product` (`id`, `name`, `type`, `image`, `price`, `quantity`, `desc
 (69, 'Macbook Pro', 3, '01.jpg', 3499, 98, 'MacBook Pro and the Environment\r\nThe 13-inch MacBook Pro is designed with the following features to reduce its environmental impact:5\r\nSee the 13-inch MacBook Pro Product Environmental Report\r\n\r\nMade with better materials\r\n100% recycled tin in the solder of the main logic board\r\nEnclosure made with recyclable, low‑carbon aluminum\r\n35% or more recycled plastic in multiple components\r\nEnergy efficient\r\nENERGY STAR® certified6\r\nSmarter chemistry7\r\nArsenic-free display glass\r\nMercury-free\r\nBFR-, PVC-, and beryllium-free\r\nGreen manufacturing\r\nApple’s Zero Waste Program helps suppliers eliminate waste sent to landfill\r\nAll final assembly supplier sites are transitioning to 100% renewable energy for Apple production\r\nResponsible packaging\r\n100% of virgin wood fiber comes from responsibly managed forests\r\nRecyclable, majority-fiber packaging', 1, '2020-10-19 09:40:25', '0000-00-00 00:00:00', 0, 2),
 (70, 'Macbook Air', 3, 'Macbook-Air-2020-MWTL2-MWTJ2_fmcw-b3.png', 3599, 100, 'Should You Buy the MacBook Air?\r\nThe MacBook Air was among the first of Apple\'s Macs to make the transition to Apple silicon, featuring significantly improved performance and battery life in a slim, fanless design. Announced in November of 2020, the MacBook Air is now over a year old, with a new model being expected to arrive later this year.\r\n\r\nApple has updated the MacBook Air erratically in recent years, releasing two new models in 2020 and with no clear pattern prior to that, although the device has been updated every year since 2017. Now that Apple controls its own custom silicon for the MacBook Air, as opposed to using Intel processors, it is likely that the MacBook Air will see updates on a more regular basis in years to come.\r\nThere have been clear signs that an updated MacBook Air with a number of upgrades and improvements is on the way, and rumors suggest that the model will arrive in mid to late 2022.\r\n\r\nUpdated MacBook Air models are believed to be just months away, meaning that it is only advisable to buy a MacBook Air if you urgently need a new machine. For most people, it will likely be better to wait until new models arrive, especially as the next-generation model is shaping up to be a significant upgrade.\r\n\r\nWhile the MacBook Air seems to be the best Apple laptop for portability and price, users who require slightly better performance and battery life, as well as the Touch Bar, should consider the M1 MacBook Pro, which starts at $1,299.\r\n', 1, '2020-10-19 09:44:02', '0000-00-00 00:00:00', 0, 0),
 (71, 'AirPods Pro', 4, 'MWP22.jpg', 499, 496, 'The Apple AirPods Pro comes with active noise cancellation for immersive sound. It provides quick access to Siri by saying “Hey Siri”.\r\n\r\nThe Wireless Charging Case delivers more than 24 hours of battery life and the Transparency mode for hearing and connecting with the world around you.\r\n\r\nApple AirPods Pro is easily one of the best wire-free headphones for iOS owners. Unlike other AirPods, the pro version is water-resistant as it comes with an IPX4 rating that makes you worry less about breaking them because of your sweat.', 1, '2020-10-19 09:46:46', '2020-10-19 09:50:06', 1, 4),
-(72, 'AirPods 2', 4, 'tai-nghe-bluetooth-airpods-2-apple-mv7n2-trang-avatar-1-600x600.jpg', 299, 500, 'The Apple AirPods 2 (with charging case) are equipped with the new Apple H1 headphone chip. Whether you use AirPods with both ears or only one of them, the H1 chip can automatically transmit audio and activate the microphone.', 1, '2020-10-19 09:49:29', '0000-00-00 00:00:00', 0, 0),
-(73, 'iPhone XS', 1, '6ad8968a4381df1db9ee7a5fda58eec7.jpg', 999, 100, 'iPhone Xs Release\r\nThe Apple iPhone X was officially announced on September 12th 2017 at Steve Job’s Theater, Apple Campus II. The smartphone is available for pre-order on September 15th and available on September 22nd.\r\n\r\nThe iPhone 8 and iPhone 8 Plus were also announced on the same day.\r\n\r\nDevice Characteristics\r\nThe iPhone X feature Apple’s first attempt at an all-screen smartphone covering the majority of the device’s footprint. The display reserves space on the top rig to accommodate the front-facing camera that functions as a facial-scanner that unlocks the device when a registered face is detected; this function is named “FaceID”.\r\n\r\nApple have removed the TouchID sensor completely providing the “all-screen” experience. The screen is Apple’s largest smartphone display, at 5.8-inches, with an 18:9 screen ratio. The screen also features an OLED HDR display with a pixel density of 458 ppi, this display is Apple’s first OLED device and also highest pixel density.\r\n\r\nThe dual-camera setup has been re-orientated to a vertical layout, the components are a near-replica of the iPhone 8, the major difference being a dual optical image stabilisation support of the iPhone X instead of a single on the other. The device comes with a 7-megapixel camera that features Apple’s Portrait mode and Animoji.', 1, '2020-10-19 10:36:04', '0000-00-00 00:00:00', 0, 0),
-(74, '1', 1, '6c74d7785ef19fafc6e0.jpg', 1, 1, '1', 1, '2022-05-21 14:48:49', '2022-05-21 14:48:49', 0, 0);
+(72, 'AirPods 2', 4, 'tai-nghe-bluetooth-airpods-2-apple-mv7n2-trang-avatar-1-600x600.jpg', 299, 500, 'The Apple AirPods 2 (with charging case) are equipped with the new Apple H1 headphone chip. Whether you use AirPods with both ears or only one of them, the H1 chip can automatically transmit audio and activate the microphone.', 1, '2020-10-19 09:49:29', '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -292,82 +291,6 @@ INSERT INTO `product_category` (`id`, `name`) VALUES
 (3, 'Macbook'),
 (4, 'Airpods'),
 (12, 'Apple Watch');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_category_information`
---
-
-CREATE TABLE `product_category_information` (
-  `id_category` int(11) NOT NULL,
-  `display` int(11) NOT NULL COMMENT 'Màn hình',
-  `operating_system` int(11) NOT NULL COMMENT 'Hệ điều hành',
-  `front_camera` int(11) NOT NULL COMMENT 'Cam trước',
-  `rear_camera` int(11) NOT NULL COMMENT 'Cam sau',
-  `cpu` int(11) NOT NULL COMMENT 'CPU',
-  `ram` int(11) NOT NULL COMMENT 'RAM',
-  `rom` int(11) NOT NULL COMMENT 'ROM',
-  `battery` int(11) NOT NULL COMMENT 'Pin',
-  `security` int(11) NOT NULL COMMENT 'Bảo mật',
-  `charging_port` int(11) NOT NULL COMMENT 'Cổng sạc',
-  `compatible` int(11) NOT NULL COMMENT 'Tương thích',
-  `sound_technology` int(11) NOT NULL COMMENT 'Công nghệ âm thnah',
-  `used_time` int(11) NOT NULL COMMENT 'Thời gian sử dụng',
-  `connect` int(11) NOT NULL COMMENT 'Kết nối',
-  `weight` int(11) NOT NULL COMMENT 'Trọng lượng',
-  `brand` int(11) NOT NULL COMMENT 'Thương hiệu',
-  `made_in` int(11) NOT NULL COMMENT 'Sản xuất tại',
-  `hard_drive` int(11) NOT NULL COMMENT 'Ổ cứng',
-  `graphic_card` int(11) NOT NULL COMMENT 'Card đồ hoạ'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `product_category_information`
---
-
-INSERT INTO `product_category_information` (`id_category`, `display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0),
-(2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1),
-(4, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0),
-(12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `product_category_name`
---
-
-CREATE TABLE `product_category_name` (
-  `display` varchar(256) NOT NULL COMMENT 'Màn hình',
-  `operating_system` varchar(256) NOT NULL COMMENT 'Hệ điều hành',
-  `front_camera` varchar(256) NOT NULL COMMENT 'Cam trước',
-  `rear_camera` varchar(256) NOT NULL COMMENT 'Cam sau',
-  `cpu` varchar(256) NOT NULL COMMENT 'CPU',
-  `ram` varchar(256) NOT NULL COMMENT 'RAM',
-  `rom` varchar(256) NOT NULL COMMENT 'ROM',
-  `battery` varchar(256) NOT NULL COMMENT 'Pin',
-  `security` varchar(256) NOT NULL COMMENT 'Bảo mật',
-  `charging_port` varchar(256) NOT NULL COMMENT 'Cổng sạc',
-  `compatible` varchar(256) NOT NULL COMMENT 'Tương thích',
-  `sound_technology` varchar(256) NOT NULL COMMENT 'Công nghệ âm thnah',
-  `used_time` varchar(256) NOT NULL COMMENT 'Thời gian sử dụng',
-  `connect` varchar(256) NOT NULL COMMENT 'Kết nối',
-  `weight` varchar(256) NOT NULL COMMENT 'Trọng lượng',
-  `brand` varchar(256) NOT NULL COMMENT 'Thương hiệu',
-  `made_in` varchar(256) NOT NULL COMMENT 'Sản xuất tại',
-  `hard_drive` varchar(256) NOT NULL COMMENT 'Ổ cứng',
-  `graphic_card` varchar(256) NOT NULL COMMENT 'Card đồ hoạ'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `product_category_name`
---
-
-INSERT INTO `product_category_name` (`display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
-('Display', 'OS', 'Front camera', 'Rear camera', 'CPU', 'RAM', 'ROM', 'Battery', 'Security', 'Charging port', 'Compatible', 'Sound technology', 'Used time', 'Connect', 'Weight', 'Brand', 'Made in', 'Hard drive', 'Graphic card'),
-('Display', 'OS', 'Front camera', 'Rear camera', 'CPU', 'RAM', 'ROM', 'Battery', 'Security', 'Charging port', 'Compatible', 'Sound technology', 'Used time', 'Connect', 'Weight', 'Brand', 'Made in', 'Hard drive', 'Graphic card');
 
 -- --------------------------------------------------------
 
@@ -419,10 +342,7 @@ INSERT INTO `product_images` (`id`, `id_product`, `url`) VALUES
 (31, 72, 'MWP22.jpg'),
 (32, 71, ''),
 (33, 61, 'ip12-4 (1).jpg'),
-(34, 62, ''),
-(35, 73, '6ad8968a4381df1db9ee7a5fda58eec7.jpg'),
-(36, 73, '11-green.jpg'),
-(37, 73, '600_ip_X_gray_800x800_2.jpg');
+(34, 62, '');
 
 -- --------------------------------------------------------
 
@@ -431,48 +351,48 @@ INSERT INTO `product_images` (`id`, `id_product`, `url`) VALUES
 --
 
 CREATE TABLE `product_information` (
+  `id` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
-  `display` varchar(256) NOT NULL COMMENT 'Màn hình',
-  `operating_system` varchar(256) NOT NULL COMMENT 'Hệ điều hành',
-  `front_camera` varchar(256) NOT NULL COMMENT 'Cam trước',
-  `rear_camera` varchar(256) NOT NULL COMMENT 'Cam sau',
-  `cpu` varchar(256) NOT NULL COMMENT 'CPU',
-  `ram` varchar(256) NOT NULL COMMENT 'RAM',
-  `rom` varchar(256) NOT NULL COMMENT 'ROM',
-  `battery` varchar(256) NOT NULL COMMENT 'Pin',
-  `security` varchar(256) NOT NULL COMMENT 'Bảo mật',
-  `charging_port` varchar(256) NOT NULL COMMENT 'Cổng sạc',
-  `compatible` varchar(256) NOT NULL COMMENT 'Tương thích',
-  `sound_technology` varchar(256) NOT NULL COMMENT 'Công nghệ âm thnah',
-  `used_time` varchar(256) NOT NULL COMMENT 'Thời gian sử dụng',
-  `connect` varchar(256) NOT NULL COMMENT 'Kết nối',
-  `weight` varchar(256) NOT NULL COMMENT 'Trọng lượng',
-  `brand` varchar(256) NOT NULL COMMENT 'Thương hiệu',
-  `made_in` varchar(256) NOT NULL COMMENT 'Sản xuất tại',
-  `hard_drive` varchar(256) NOT NULL COMMENT 'Ổ cứng',
-  `graphic_card` varchar(256) NOT NULL COMMENT 'Card đồ hoạ'
+  `display` varchar(256) DEFAULT 'Không' COMMENT 'Màn hình',
+  `operating_system` varchar(256) DEFAULT 'Không' COMMENT 'Hệ điều hành',
+  `front_camera` varchar(256) DEFAULT 'Không' COMMENT 'Cam trước',
+  `rear_camera` varchar(256) DEFAULT 'Không' COMMENT 'Cam sau',
+  `cpu` varchar(256) DEFAULT 'Không' COMMENT 'CPU',
+  `ram` varchar(256) DEFAULT 'Không' COMMENT 'RAM',
+  `rom` varchar(256) DEFAULT 'Không' COMMENT 'ROM',
+  `battery` varchar(256) DEFAULT 'Không' COMMENT 'Pin',
+  `security` varchar(256) DEFAULT 'Không' COMMENT 'Bảo mật',
+  `charging_port` varchar(256) DEFAULT 'Không' COMMENT 'Cổng sạc',
+  `compatible` varchar(256) DEFAULT 'Không' COMMENT 'Tương thích',
+  `sound_technology` varchar(256) DEFAULT 'Không' COMMENT 'Công nghệ âm thnah',
+  `used_time` varchar(256) DEFAULT 'Không' COMMENT 'Thời gian sử dụng',
+  `connect` varchar(256) DEFAULT 'Không' COMMENT 'Kết nối',
+  `weight` varchar(256) DEFAULT 'Không' COMMENT 'Trọng lượng',
+  `brand` varchar(256) DEFAULT 'Apple' COMMENT 'Thương hiệu',
+  `made_in` varchar(256) DEFAULT 'Chưa có thông tin' COMMENT 'Sản xuất tại',
+  `hard_drive` varchar(256) DEFAULT 'Chưa có thông tin' COMMENT 'Ổ cứng',
+  `graphic_card` varchar(256) DEFAULT 'Chưa có thông tin' COMMENT 'Card đồ hoạ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_information`
 --
 
-INSERT INTO `product_information` (`id_product`, `display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
-(59, 'IPS LCD, 6.1\", Liquid Retina ', 'iOS 13', '12 MP', '2 Camera 12MP', 'Apple A13', '4GB', '64GB', '3110 mAh', '0', 'Lightning', '0', '0', '0', '0', '194 g', '0', 'Viet Nam', '0', '0'),
-(60, 'OLED, 6.5\" Super Retina XDR', 'iOS 13', '12 MP', '3 Camera 12 MP', 'Apple A13', '4GB', '256GB', '3969 mAh', '0', 'Lightning', '0', '0', '0', '0', '226g', '0', 'Viet Nam', '0', '0'),
-(61, '6.1', 'iOS 13', '12 MP', '2 camera 12 MP', 'Apple A14', '6GB', '128GB', '4000 mAh', '0', 'Lightning', '0', '0', '0', '0', '200g', '0', 'Viet Nam', '0', '0'),
-(62, 'OLED 5.1\" Super Retina', 'iOS 12', '7MP', '2 camera 12MP', 'Apple A12', '4GB', '64GB', '2658 mAh', '0', 'Lightning', '0', '0', '0', '0', '177g', '0', 'Viet Nam', '0', '0'),
-(63, 'OLED 6.4\" Super Retina', 'iOS 12', '7MP', '2 camera 12MP', 'Apple A12', '4GB', '128GB', '3128 mAh', '0', 'Lightning', '0', '0', '0', '0', '261g', '0', 'Viet Nam', '0', '0'),
-(64, 'OLED 5.5\" Retina HD', 'iOS 13', '7MP', '2 camera 12MP', 'Apple A11', '3GB', '128GB', '2691 mAh', '0', 'Lightning', '0', '0', '0', '0', '202g', '0', 'Viet Nam', '0', '0'),
-(65, 'OLED 5.5\" Retina HD', 'iOS 13', '7MP', '2 camera 12MP', 'Apple A10', '3GB', '32GB', '2900 mAh', '0', 'Lightning', '0', '0', '0', '0', '201g', '0', 'Viet Nam', '0', '0'),
-(66, 'Liquid Retina 10.8\"', 'iPadOS 14', '7MP', '12MP', 'Apple A14', '6GB', '256GB', '3000 mAh', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-(67, 'Liquid Retina 11\"', 'iPadOS 13', '7MP', '12MP', 'Apple A12Z', '6GB', '128GB', '7600 mAh', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-(68, 'LCD 7.9\"', 'iPadOS 13', '7MP', '8MP', 'Apple A12', '3GB', '64GB', '5124 mAh', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
-(69, '13.3 Super Retina', 'Mac OS', '10MP', '0', 'Intel Core i5 8th', '8GB LPDDR3', '0', '10000 mAh', '0', 'Lightning', '0', '0', '0', '2 x USB-C', '1.4Kg', '0', '0', 'SSD 256GB', 'Intel Iris Plus Graphics 645'),
-(70, '13.3\" Retina', 'Mac OS', '12MP', '0', 'Intel Core i5 10th', '8GB LPDDR4X', '0', '15000 mAh', '0', 'Lightning', '0', '0', '0', '2 x USB-C', '1.29Kg', '0', '0', 'SSD 256GB', 'Intel Iris Plus Graphics'),
-(71, '0', '0', '0', '0', '0', '0', '0', '5000 mAh', '0', 'Lightning', 'MacOS, iOS', 'Active Noise Cancelling', '4.5h', '1 device', '0', '0', '0', '0', '0'),
-(72, '0', '0', '0', '0', '0', '0', '0', '3000 mAh', '0', 'Lightning', 'Android, iOS', 'Active Noise Pro', '5h', '1 device', '0', '0', '0', '0', '0'),
-(73, 'OLED 5.1\" Super Retina', 'IOS 14', '12MP', '2 camera 12MP', 'Apple A12', '4GB', '256GB', '3128 mAh', '0', 'Lightning', '0', '0', '0', '0', '261g', '0', 'China', '0', '0');
+INSERT INTO `product_information` (`id`, `id_product`, `display`, `operating_system`, `front_camera`, `rear_camera`, `cpu`, `ram`, `rom`, `battery`, `security`, `charging_port`, `compatible`, `sound_technology`, `used_time`, `connect`, `weight`, `brand`, `made_in`, `hard_drive`, `graphic_card`) VALUES
+(1, 59, 'IPS LCD, 6.1\", Liquid Retina ', 'IOS 13', '12', '2 Camera 12MP', 'Apple A13', '4GB', '64', '3110', '0', 'Lightning', '0', '0', '0', '0', '194 g', '0', 'Viet Nam', '0', '0'),
+(2, 60, 'OLED, 6.5\" Super Retina XDR', 'IOS 13', '12', '3 Camera 12 MP', 'Apple A13', '4GB', '256', '3969', '0', 'Lightning', '0', '0', '0', '0', '226g', '0', 'Viet Nam', '0', '0'),
+(3, 61, '6.1', 'IOS 13', '12', '2 camera 12 MP', 'Apple A14', '6GB', '128', '4000', '0', 'Lightning', '0', '0', '0', '0', '200g', '0', 'Viet Nam', '0', '0'),
+(4, 62, 'OLED 5.1\" Super Retina', 'IOS 12', '7', '2 camera 12MP', 'Apple A12', '4GB', '64', '2658', '0', 'Lightning', '0', '0', '0', '0', '177g', '0', 'Viet Nam', '0', '0'),
+(5, 63, 'OLED 6.4\" Super Retina', 'IOS 12', '7', '2 camera 12MP', 'Apple A12', '4GB', '128', '3128', '0', 'Lightning', '0', '0', '0', '0', '261g', '0', 'Viet Nam', '0', '0'),
+(6, 64, 'OLED 5.5\" Retina HD', 'IOS 13', '7', '2 camera 12MP', 'Apple A11', '3GB', '128', '2691', '0', 'Lightning', '0', '0', '0', '0', '202g', '0', 'Viet Nam', '0', '0'),
+(7, 65, 'OLED 5.5\" Retina HD', 'IOS 13', '7', '2 camera 12MP', 'Apple A10', '3GB', '32', '2900', '0', 'Lightning', '0', '0', '0', '0', '201g', '0', 'Viet Nam', '0', '0'),
+(8, 66, 'Liquid Retina 10.8\"', 'iPadOS 14', '7', '12MP', 'Apple A14', '6GB', '256', '3000', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+(9, 67, 'Liquid Retina 11\"', 'iPadOS 13', '7', '12MP', 'Apple A12Z', '6GB', '128', '7600', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+(10, 68, 'LCD 7.9\"', 'iPadOS 13', '7', '8MP', 'Apple A12', '3GB', '64', '5124', '0', 'Type-C', '0', '0', '0', '0', '0', '0', '0', '0', '0'),
+(11, 69, '13.3 Super Retina', 'Mac OS', '10', '0', 'Intel Core i5 8th', '8GB LPDDR3', '128', '10000', '0', 'Lightning', '0', '0', '0', '2 x USB-C', '1.4Kg', '0', '0', 'SSD 256GB', 'Intel Iris Plus Graphics 645'),
+(12, 70, '13.3\" Retina', 'Mac OS', '12', '0', 'Intel Core i5 10th', '8GB LPDDR4X', '0', '15000', '0', 'Lightning', '0', '0', '0', '2 x USB-C', '1.29Kg', '0', '0', 'SSD 256GB', 'Intel Iris Plus Graphics'),
+(13, 71, '0', '0', '0', '0', '0', '0', '0', '5000', '0', 'Lightning', 'MacOS, iOS', 'Active Noise Cancelling', '4.5h', '1 device', '0', '0', '0', '0', '0'),
+(14, 72, '0', '0', '0', '0', '0', '0', '0', '3000 mAh', '0', 'Lightning', 'Android, iOS', 'Active Noise Pro', '5h', '1 device', '0', '0', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -620,12 +540,6 @@ ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product_category_information`
---
-ALTER TABLE `product_category_information`
-  ADD PRIMARY KEY (`id_category`);
-
---
 -- Indexes for table `product_images`
 --
 ALTER TABLE `product_images`
@@ -636,7 +550,8 @@ ALTER TABLE `product_images`
 -- Indexes for table `product_information`
 --
 ALTER TABLE `product_information`
-  ADD PRIMARY KEY (`id_product`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produtc_productinfor` (`id_product`);
 
 --
 -- Indexes for table `user`
@@ -691,7 +606,7 @@ ALTER TABLE `order_list`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `product_category`
@@ -703,7 +618,13 @@ ALTER TABLE `product_category`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+
+--
+-- AUTO_INCREMENT for table `product_information`
+--
+ALTER TABLE `product_information`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -741,12 +662,6 @@ ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`type`) REFERENCES `product_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `product_category_information`
---
-ALTER TABLE `product_category_information`
-  ADD CONSTRAINT `product_category_information_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `product_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `product_images`
 --
 ALTER TABLE `product_images`
@@ -756,7 +671,7 @@ ALTER TABLE `product_images`
 -- Constraints for table `product_information`
 --
 ALTER TABLE `product_information`
-  ADD CONSTRAINT `product_information_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `produtc_productinfor` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_permissions`

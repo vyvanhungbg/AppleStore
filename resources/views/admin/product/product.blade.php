@@ -85,11 +85,11 @@
                                         </i>
                                         Edit
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <button data-id="{{$product->id}}"  class="btn_click_delete btn btn-danger btn-sm">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete
-                                    </a>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -103,6 +103,43 @@
     </div>
     <!-- /.content-wrapper -->
 
+    <script src="{{asset("js/jquery-3.3.1.min.js")}}"></script>
+    <script src="{{asset("js/bootstrap.min.js")}}"></script>
+    <script src="{{asset("js/jquery.nice-select.min.js")}}"></script>
+    <script src="{{asset("js/jquery.nicescroll.min.js")}}"></script>
+    <script src="{{asset("js/jquery.magnific-popup.min.js")}}"></script>
+    <script src="{{asset("js/jquery.countdown.min.js")}}"></script>
+    <script src="{{asset("js/jquery.slicknav.js")}}"></script>
+    <script src="{{asset("js/mixitup.min.js")}}"></script>
+    <script src="{{asset("js/owl.carousel.min.js")}}"></script>
+    <script src="{{asset("js/main.js")}}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $(".btn_click_delete").click(function() {
+                let btn_delete = $(this);
+                let id = $(this).data('id');
+                var r = confirm("Bạn có chắc chắn muốn xóa sản phẩm này không ?");
+                if (r == true) {
+                    $.ajax({
+                        url: '{{route('admin-product-delete')}}',
+                        type: 'GET',
+                        data: {id}
+                    }).done(function () {
+                        let parent_tr = btn_delete.parents('tr');
+                        parent_tr.remove();
+                    }).fail(function () {
+                        //  alert("Thêm sản phẩm"+name+" thất bại ");
+                    });
+                } else {
+                    //x = "You pressed Cancel!";
+                }
+
+
+                });
+             });
+    </script>
 @endsection
 <!-- ./wrapper -->
 

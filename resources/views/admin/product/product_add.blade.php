@@ -65,7 +65,104 @@
 
                                     <div class="form-group">
                                         <label for="inputProductQuantity">Project Quantity</label>
-                                        <input required type="text" name="quantity" class="form-control">
+                                        <input required type="number" min="0" name="quantity" class="form-control">
+                                    </div>
+
+{{--                                    atribute of table product infor--}}
+
+                                    <div class="form-group">
+                                        <label for="display">Display</label>
+                                        <input  type="text" name="display" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="operating_system">Operating System</label>
+                                        <input  type="text" name="operating_system" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="front_camera">Font camera</label>
+                                        <input  type="number" min="0" name="front_camera" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="rear_camera">Rear camera</label>
+                                        <input  type="text" name="rear_camera" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cpu">CPU</label>
+                                        <input  type="text" name="cpu" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ram">Ram</label>
+                                        <input  type="text" name="ram" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="ram">Rom</label>
+                                        <input  type="number" min="0" name="rom" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="battery">Battery</label>
+                                        <input  type="number" min="0" name="battery" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="security">Security</label>
+                                        <input  type="text" name="security" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="charging_port">Charging port</label>
+                                        <input  type="text" name="charging_port" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="compatible">Compatible</label>
+                                        <input  type="text" name="compatible" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="sound_technology">Sound Technology</label>
+                                        <input  type="text" name="sound_technology" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="used_time">Used Time</label>
+                                        <input  type="text" name="used_time" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="connect">Connect</label>
+                                        <input  type="text" name="connect" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="weight">Weight</label>
+                                        <input  type="text" name="weight" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="brand">Brand</label>
+                                        <input  type="text" name="brand" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="made_in">Made in</label>
+                                        <input  type="text" name="made_in" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="hard_drive">Hard drive</label>
+                                        <input  type="text" name="hard_drive" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="graphic_card">Graphic card</label>
+                                        <input  type="text" name="graphic_card" class="form-control">
                                     </div>
                                 </div>
                             </form>
@@ -96,19 +193,19 @@
 
                                     <tr>
                                         <td><label>Image 1</label></td>
-                                        <td> <input type="file" onchange="readURL(this,'image_preview_1');" /></td>
+                                        <td> <input form="form-create-product" name='image_1' type="file" onchange="readURL(this,'image_preview_1');" /></td>
                                         <td>  <img height="100px" width="100px" id="image_preview_1" src="#" alt="your image" /></td>
                                     </tr>
 
                                     <tr>
                                         <td><label>Image 2</label></td>
-                                        <td> <input type="file" onchange="readURL(this,'image_preview_2')" /></td>
+                                        <td> <input form="form-create-product" name='image_2' type="file" onchange="readURL(this,'image_preview_2')" /></td>
                                         <td>  <img height="100px" width="100px" id="image_preview_2" src="#" alt="your image" /></td>
                                     </tr>
 
                                     <tr>
                                         <td><label>Image 3</label></td>
-                                        <td> <input  type="file" onchange="readURL(this,'image_preview_3')" /></td>
+                                        <td> <input form="form-create-product" name='image_3'  type="file" onchange="readURL(this,'image_preview_3')" /></td>
                                         <td>  <img height="100px" width="100px" id="image_preview_3" src="#" alt="your image" /></td>
                                     </tr>
                                 </table>
