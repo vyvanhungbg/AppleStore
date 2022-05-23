@@ -52,7 +52,7 @@
                             <th>ID</th>
                             <th>User name</th>
                             <th>Full name</th>
-                            <th>Date</th>
+                            <th>Permission</th>
                             <th>Email</th>
                             <th>Status</th>
                         </tr>
@@ -63,7 +63,15 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->username}}</td>
                                 <td>{{$user->fullname}}</td>
-                                <td>{{$user->birthday}}</td>
+                                <td>
+                                    @if($user->lv ===1 )
+                                        {{'Admin'}}
+                                    @elseif($user->lv ===15)
+                                        {{'Staff'}}
+                                    @else
+                                        {{'Customer'}}
+                                    @endif
+                                </td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->status}}</td>
                             </tr>

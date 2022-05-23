@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <title>login</title>
     <link rel="stylesheet" href="css/login.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -27,7 +27,7 @@
                         <div class="input-group">
                             <i class='bx bx-mail-send'></i>
                             <input type="email" name="email" id="email" placeholder="email" ">
-                            
+
                         </div>
                         <p style="text-align:left;" id="ckemail"></p>
                         <div class="input-group">
@@ -38,7 +38,7 @@
                         <div class="input-group">
                             <i class='bx bxs-lock' ></i>
                             <input type="password" name="confirmPassword" id="pswd2" placeholder="Confirm Password" ">
-                            
+
                         </div>
                         <p style="text-align:left;" id="ckpass2"></p>
                         <button onclick="match()">
@@ -73,11 +73,8 @@
                         </div>
                     </div>
                 </div>
-                
+
             </form>
-            @if(session('success'))
-                {{ session('success') }}
-            @endif
             <!--END SIGN UP-->
             <!--SIGN IN-->
             <form class="col align-items-center flex-col sign-in" method="POST" action="{{route('postLogin')}}">
@@ -92,7 +89,13 @@
                         <div class="input-group">
                             <i class='bx bxs-lock-alt'></i>
                             <input type="password" id="passin" name="passwordin" placeholder="password">
+
                         </div>
+                        @if(isset($check))
+                            <div class="alert alert-danger" role="alert">
+                                Đăng nhập sai !!!
+                            </div>
+                            @endif
                         <p style="text-align:left;" id="ckpassin"></p>
                         <button>
                             Sign in
@@ -101,7 +104,7 @@
                             <b>
                                 Forgot password?
                             </b>
-                            <a href="{{asset('../logout')}}">logout</a>
+
                         </p>
                         <p>
                             <span>
@@ -144,7 +147,7 @@
                         Apple Store
                     </h2>
                     <p>
-                        Apple Chính hãng Ưu đãi ngập tràn
+                        Apple think different
                     </p>
                 </div>
                 <div class="img sign-in">
@@ -161,7 +164,7 @@
                         Join with us
                     </h2>
                     <p>
-                        Trở thành thành viên để nhận được những ưu đãi tốt nhất !!!
+                        Become a member to get the best deals !!!
                     </p>
                 </div>
             </div>
@@ -184,13 +187,13 @@
                 document.getElementById("ckemail").innerHTML = "**Required**";
                 return false;
             }
-            
+
             if(pw1 == "") {
                 document.getElementById("ckpass").innerHTML = "**Required**";
                 return false;
             }
             if(pw1 != pw2)
-            {	
+            {
                 document.getElementById("ckpass2").innerHTML = "**Passwords are not same**";
                 return false;
             }
@@ -207,12 +210,6 @@
                 return false;
             }
         }
-        // function changetxt(){
-        //     document.getElementById("ckname").innerHTML = "";
-        //     document.getElementById("ckemail").innerHTML = "";
-        //     document.getElementById("ckpass").innerHTML = "";
-        //     document.getElementById("ckpass2").innerHTML = "";
-        // }
 
         let container = document.getElementById('container')
         toggle = () =>{

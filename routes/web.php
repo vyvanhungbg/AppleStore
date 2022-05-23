@@ -32,11 +32,11 @@ Route::get('/login',
 )->name('login');
 
 Route::get('/register',
-    action : [loginController::class,'showRegister']
+    action : [LoginController::class,'showRegister']
 );
 
 Route::post('/register',
-    action : [loginController::class,'register']
+    action : [LoginController::class,'register']
 )->name('register');
 
 Route::post('/login',
@@ -45,6 +45,7 @@ Route::post('/login',
 
 Route::get('/logout',
     action : [LoginController::class,'getLogout'])->name('logout');
+
 
 Route::get('/shop',
     action : [ShopController::class,'index'])->name('shop');
@@ -74,8 +75,11 @@ Route::get('/admin',
 Route::get('/admin-customer',
     action : [AdminController::class,'customer'])->name('customer');
 
+Route::get('/logout-admin',
+    action : [LoginController::class,'getLogoutAdmin'])->name('logout-admin');
 
 // Product manager
+
 Route::get('/admin-product',
     action : [ProductManagerController::class,'index'])->name('admin-product');
 
@@ -88,9 +92,21 @@ Route::post('/admin-product-store',
 Route::get('/admin-product-delete',
     action : [ProductManagerController::class,'delete'])->name('admin-product-delete');
 
+Route::get('/admin-product-update',
+    action : [ProductManagerController::class,'update'])->name('admin-product-update');
+
+Route::get('/admin-product-edit',
+    action : [ProductManagerController::class,'edit'])->name('admin-product-edit');
+
 // detail
 Route::get('/details',
     action : [ProductDetailsController::class,'index'])->name('details');
 
 Route::get('/contacts',
     action : [ContactsController::class,'index'])->name('contacts');
+//login admin
+Route::get('/log-admin',
+    action : [LoginController::class,'getLogAdmin'])->name('logAdmin');
+
+Route::post('/post-log-admin',
+    action : [LoginController::class,'postLogAdmin'])->name('postlogAdmin');

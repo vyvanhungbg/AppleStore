@@ -120,4 +120,73 @@ class ProductManagerController extends Controller
 
         }
     }
+
+
+    public function edit(Request $request)
+    {
+        $categories = DB::table('product_category')->get();
+        if($request->has('id')){
+            $id = $request->input('id');
+            $product = Product::find($id);
+            $product_infor = ProductInformation::where('id_product',$id)->first();
+            $product_images = ProductImages::where('id_product',$id)->get();
+            return view('admin.product.product_edit', data:[
+                'product' => $product,
+                'categories' =>$categories,
+                'product_infor' =>$product_infor,
+                'product_images'=>$product_images
+                ]);
+        }
+    }
+
+
+    public function update(Request $request)
+    {
+        if($request->has('id')){
+            $id = $request->input('id');
+            if($request->file('image')){
+                $request->validate([
+                    'image' => 'mimes:jpeg,bmp,png', // Only allow .jpg, .bmp and .png file types.
+                    'image_1'  =>'mimes:jpeg,bmp,png',
+                    'image_2'  =>'mimes:jpeg,bmp,png',
+                    'image_3'  =>'mimes:jpeg,bmp,png',
+                ]);
+                $product = Product::where('id',$id)->update($request->all());
+
+                $file_main= $request->file('image');
+
+                if($request->file('image_1')){
+                    $file_1 = $request->file('image_1');
+                    $filename_1 = $product->id.'_1.'.$file_1->extension();
+                    $storedPath_1 = $file_1-> move(public_path('img/image-product'), $filename_1);
+                    ProductImages::create(array('id_product' => $product->id,'url'=> $filename_1));
+                }
+
+                if($request->file('image_2')){
+                    $file_2 = $request->file('image_2');
+                    $filename_2 = $product->id.'_2.'.$file_2->extension();
+                    $storedPath_2 = $file_2-> move(public_path('img/image-product'), $filename_2);
+                    ProductImages::create(array('id_product' => $product->id,'url'=> $filename_2));
+                }
+
+                if($request->file('image_3')){
+                    $file_3 = $request->file('image_3');
+                    $filename_3 = $product->id.'_3.'.$file_3->extension();
+                    $storedPath_3 = $file_3-> move(public_path('img/image-product'), $filename_3);
+                    ProductImages::create(array('id_product' => $product->id,'url'=> $filename_3));
+                }
+
+
+
+                $filename = $product->id.'.'.$file_main->extension();
+                $storedPath   = $file_main-> move(public_path('img/image-product'), $filename);
+                Product::where('id', $product->id)->update(['image' => $filename]);
+                ProductInformation::create(array_merge($request->all(),['id_product' => $product->id]));
+
+                return  redirect('admin-product');
+            }
+        }
+
+
+    }
 }

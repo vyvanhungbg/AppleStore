@@ -35,26 +35,16 @@
                                 <input type="text" name="fullname" placeholder="Fullname" class="checkout__input__add">
                             </div>
                             <div class="checkout__input">
-                                <p>Username<span>*</span></p>
-                                <input type="text" name="username" placeholder="Username" class="checkout__input__add">
-                            </div>
-                            <div class="checkout__input">
                                 <p>Address<span>*</span></p>
                                 <input type="text" name="address" placeholder="Address" class="checkout__input__add">
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text" name="phone" placeholder="0123...">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text" name="email" placeholder="abc@gmail.com">
-                                    </div>
-                                </div>
+                            <div class="checkout__input">
+                                <p>Phone<span>*</span></p>
+                                <input type="text" name="phone" placeholder="0123..." class="checkout__input__add">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Note<span>*</span></p>
+                                <textarea class="checkout__input__add form-control" name="note" placeholder="something here..." aria-label="With textarea"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
@@ -94,7 +84,11 @@
                                     </div>
                                 </div>
                                 <br>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                @if (Illuminate\Support\Facades\Auth::check() === true)
+                                    <button type="submit" class="site-btn">PLACE ORDER</button>
+                                @else
+                                    <a class="site-btn text-center" href="{{asset('../login')}}">You need to sign in</a>
+                                @endif
                             </div>
                         </div>
                     </div>

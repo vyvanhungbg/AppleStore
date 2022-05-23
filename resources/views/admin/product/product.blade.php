@@ -80,7 +80,7 @@
                                 <td>{{$product->quantity}}</td>
                                 <td>{{$product->sold}}</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{route('admin-product-edit',parameters: ['id'=>$product->id])}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Edit
@@ -130,7 +130,7 @@
                         let parent_tr = btn_delete.parents('tr');
                         parent_tr.remove();
                     }).fail(function () {
-                        //  alert("Thêm sản phẩm"+name+" thất bại ");
+                          alert("Xóa sản phẩm thất bại ");
                     });
                 } else {
                     //x = "You pressed Cancel!";

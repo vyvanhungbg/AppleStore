@@ -56,18 +56,17 @@ class LoginController extends Controller
         // ->where('password', $password)->count();
         // $user = $request->all();
         // Auth::login($user);
-        if(Auth::attempt(['username' => $username, 'password' =>$password])) { 
+        if(Auth::attempt(['username' => $username, 'password' =>$password])) {
             $request->session()->regenerate();
-            
+
 			// Kiểm tra đúng email và mật khẩu sẽ chuyển trang
 			return redirect()->route('home');
 		} else {
 			// Kiểm tra không đúng sẽ hiển thị thông báo lỗi
-                echo '<script language="javascript">';
-                echo 'alert("dang nhap sai!!!")';
-                echo '</script>';
-                sleep(4);
-			return redirect('login');
+            $check = 1;
+            return view("login.index",data: [
+                'check' => $check,
+            ]);
 		}
     }
 
@@ -77,4 +76,42 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function getLogAdmin()
+    {
+        return view('admin.login.index');
+    }
+
+    public function getLogoutAdmin()
+    {
+        Auth::logout();
+        return redirect()->route('admin');
+    }
+
+    public function postLogAdmin(request $request){
+        //echo $request->username;
+        $username = $request->input('adLogName');
+        $password = $request->input('adLogPassword');
+
+        if(Auth::attempt(['username' => $username, 'password' =>$password])) {
+            $request->session()->regenerate();
+            if(Auth::user()->lv == 1){
+                return redirect()->route('admin');
+            }
+            else{
+                Auth::logout();
+                $check = 1;
+                return view("admin.login.index",data: [
+                    'check' => $check,
+                ]);
+            }
+
+        } else {
+            $check = 1;
+            return view("admin.login.index",data: [
+                'check' => $check,
+            ]);
+        }
+    }
+
 }

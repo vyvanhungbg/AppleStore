@@ -10,8 +10,8 @@
                     <div class="breadcrumb__text">
                         <h4>Shop</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shop</span>
+                            <a href="{{route('home')}}">Home</a>
+                            <span>Product</span>
                         </div>
                     </div>
                 </div>
