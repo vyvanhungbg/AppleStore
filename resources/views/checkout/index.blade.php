@@ -79,7 +79,7 @@
                                         Paypal
                                     </div>
                                     <div class="">
-                                        <input type="radio" class="mr-3" value="cashOnDelivery"  name="paymentMethod" id="Cash On Delivery">
+                                        <input checked type="radio" class="mr-3" value="cashOnDelivery"  name="paymentMethod" id="Cash On Delivery">
                                         Cash On Delivery
                                     </div>
                                 </div>

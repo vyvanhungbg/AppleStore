@@ -79,7 +79,8 @@
                         @endif
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
                     <a href="{{asset('/cart')}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
-                    <div class="price">$0.00</div>
+
+                    <div id="div-price" class="price">{{'$'.$total}}</div>
                 </div>
             </div>
         </div>
@@ -192,8 +193,11 @@
             $.ajax({
                 url: '{{route('add_to_cart')}}',
                 type: 'GET',
+
                 data: {id}
-            }).done(function () {
+            }).done(function (data) {
+                const div = document.getElementById('div-price');
+                div.textContent = '$'+data;
                 alert("Đã thêm "+name+"  vào giỏ hàng");
             }).fail(function () {
                 alert("Thêm sản phẩm"+name+" thất bại ");
@@ -211,7 +215,14 @@
                 url: '{{route('update_to_cart')}}',
                 type: 'GET',
                 data: {id,type}
-            }).done(function () {
+            }).done(function (data) {
+
+                const div = document.getElementById('div-price');
+                const div_subtotal = document.getElementById('subtotal');
+                const div_total = document.getElementById('total');
+                div.textContent = '$'+data;
+                div_subtotal.textContent = '$'+data;
+                div_total.textContent = '$'+data;
                // alert("Đã thêm "+name+"  vào giỏ hàng");
                 let parent_tr = btn_update.parents('tr');
                 let price = parent_tr.find(".span-price").text()
@@ -234,6 +245,33 @@
 
             }).fail(function () {
                 //alert("Thêm sản phẩm"+name+" thất bại ");
+            });
+        });
+    });
+
+    $(document).ready(function(){
+
+        $(".cart__close").click(function(){
+            let btn_close = $(this);
+            let id = $(this).data('id');
+            $.ajax({
+                url: '{{route('remove_to_cart')}}',
+                type: 'GET',
+                data: {id}
+            }).done(function (data) {
+               // alert( "Bấm ");
+                const div = document.getElementById('div-price');
+                const div_subtotal = document.getElementById('subtotal');
+                const div_total = document.getElementById('total');
+                div.textContent = '$'+data;
+                div_subtotal.textContent = '$'+data;
+                div_total.textContent = '$'+data;
+                // xóa thẻ dòng
+                let parent_tr = btn_close.parents('tr');
+                parent_tr.remove();
+
+            }).fail(function () {
+                alert( "Xóa sản phẩm thất bại !");
             });
         });
     });

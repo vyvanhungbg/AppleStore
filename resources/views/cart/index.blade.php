@@ -36,7 +36,7 @@
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Total</th>
-                            <th>Mua</th>
+{{--                            <th>Mua</th>--}}
                             <th></th>
                         </tr>
                         </thead>
@@ -63,8 +63,8 @@
                                     </div>
                                 </td>
                                 <td class="cart__price"><span class="span-total-price">{{$product->price*$cart[$product->id]}}</span></td>
-                                <td class="cart__checkbox"><input type="checkbox" name=""></td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
+{{--                                <td class="cart__checkbox"><input type="checkbox" name=""></td>--}}
+                                <td data-id="{{$product->id}}" class="cart__close"><i class="fa fa-close"></i></td>
 
                             </tr>
                         @endforeach
@@ -76,14 +76,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="#">Continue Shopping</a>
+                            <a href="{{route('shop')}}">Continue Shopping</a>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <div class="continue__btn update__btn">
-                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-6 col-md-6 col-sm-6">--}}
+{{--                        <div class="continue__btn update__btn">--}}
+{{--                            <a href="#"><i class="fa fa-spinner"></i> Update cart</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="col-lg-4">
@@ -97,14 +97,21 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>$ 169.50</span></li>
-                        <li>Total <span>$ 169.50</span></li>
+                        <li>Subtotal <span id="subtotal">{{'$'.$total}}</span></li>
+                        <li>Total <span id="total">{{'$'.$total}}</span></li>
                     </ul>
-                    <a href="{{route('checkout')}}" class="primary-btn">Proceed to checkout</a>
+                    <a @if(empty($_SESSION['cart'])) href="{{route('shop')}}"  onclick="myclick()"  @else  href="{{route('checkout')}}"  @endif
+            class="primary-btn">Proceed to checkout</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script language="javascript">
+        function myclick() {
+         alert("Giỏ hàng trống !!!");
+        }
+    </script>
 </section>
 <!-- Shopping Cart Section End -->
 

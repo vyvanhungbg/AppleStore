@@ -22,14 +22,16 @@
                                     </div>
                                 </a>
                             </li>
+                            <?php $i=2; ?>
                             @foreach($products_img as $product_img)
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-{{$i++}}" role="tab">
                                     <div class="product__thumb__pic set-bg" data-setbg="{{$product_img->get_url_image_by_image_name()}}">
                                     </div>
                                 </a>
                             </li>
                             @endforeach
+
                         </ul>
                     </div>
                     <div class="col-lg-6 col-md-9">
@@ -39,13 +41,14 @@
                                     <img src="{{$product->get_url_image()}}" alt="">
                                 </div>
                             </div>
+                            <?php $j=2; ?>
                             @foreach($products_img as $product_img)
-                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <div class="tab-pane" id="tabs-{{$j++}}" role="tabpanel">
                                 <div class="product__details__pic__item">
                                     <img src="{{$product_img->get_url_image_by_image_name()}}" alt="">
                                 </div>
                             </div>
-                            @endforeach   
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -65,15 +68,15 @@
                                 <i class="fa fa-star"></i>
                                 <span> - 555 Reviews</span>
                             </div>
-                            <h3>{{$product->price}}$</h3>
+                            <h3>${{$product->price}}</h3>
                             <p>{{$product->decription}}</p>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
-                                    </div>
-                                </div>
-                                <a href="#" class="primary-btn">add to cart</a>
+{{--                                <div class="quantity">--}}
+{{--                                    <div class="pro-qty">--}}
+{{--                                        <input type="text" value="1">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <button data-name_add_to_cart ="{{$product->name}}"   data-id_add_to_cart="{{$product->id}}" class="add-cart primary-btn">add to cart</button>
                             </div>
                             <div class="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
@@ -81,7 +84,7 @@
                             </div>
                         </div>
                     </div>
-                </div>   
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__tab">
@@ -121,7 +124,7 @@
                                                         </tr>
                                                         <tr @if(strcmp($product_inf->front_camera,'0') ===0) hidden @endif>
                                                             <th>Front camera</th>
-                                                            <td>{{$product_inf->front_camera}}</td>
+                                                            <td>{{$product_inf->front_camera}}MP</td>
                                                         </tr>
                                                         <tr @if(strcmp($product_inf->rear_camera,'0') ===0) hidden @endif>
                                                             <th>Rear camera</th>
@@ -137,11 +140,11 @@
                                                         </tr>
                                                         <tr @if(strcmp($product_inf->rom,'0') ===0) hidden @endif>
                                                             <th>ROM</th>
-                                                            <td>{{$product_inf->rom}}</td>
+                                                            <td>{{$product_inf->rom}}GB</td>
                                                         </tr>
                                                         <tr @if(strcmp($product_inf->battery,'0') ===0) hidden @endif>
                                                             <th>Battery</th>
-                                                            <td>{{$product_inf->battery}}</td>
+                                                            <td>{{$product_inf->battery}} mAh</td>
                                                         </tr>
                                                         <tr @if(strcmp($product_inf->security,'0') ===0) hidden @endif>
                                                             <th>Security</th>
@@ -204,7 +207,7 @@
                                 <div class="tab-pane" id="tabs-7" role="tabpanel">
                                     <div class="product__details__tab__content">
                                         <div class="product__details__tab__content__item">
-                                           <p>{{$product->description}}</p> 
+                                           <p>{{$product->description}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -229,17 +232,19 @@
                 @foreach($products_related as $product_related)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{$product_related->get_url_image()}}">
-                            <span class="label">New</span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="#"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
+                        <a href="{{route('details',parameters:['id'=>$product_related->id])}}">
+                            <div  class="product__item__pic set-bg" data-setbg="{{$product_related->get_url_image()}}">
+                                {{--                <ul class="product__hover">--}}
+                                {{--                    <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>--}}
+                                {{--                    <li><a href="#"><img src="img/icon/compare.png" alt=""> <span>Compare</span></a>--}}
+                                {{--                    </li>--}}
+                                {{--                    <li><a href="{{route('details',parameters:['id'=>$product->id])}}"><img src="img/icon/search.png" alt=""></a></li>--}}
+                                {{--                </ul>--}}
+                            </div>
+                        </a>
                         <div class="product__item__text">
                             <h6>{{$product_related->name}}</h6>
-                            <a href="#" class="add-cart">+ Add To Cart</a>
+                            <a  class="add-cart shadow p-1 mb-5  rounded btn btn-outline-secondary" data-id_add_to_cart ="{{$product_related->id}}" data-name_add_to_cart ="{{$product_related->name}}">+ Add To Cart</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
@@ -247,7 +252,7 @@
                                 <i class="fa fa-star-o"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <h5>{{$product_related->price}}$</h5>
+                            <h5>${{$product_related->price}}</h5>
                             <div class="product__color__select">
                                 <label for="pc-1">
                                     <input type="radio" id="pc-1">

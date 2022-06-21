@@ -62,6 +62,9 @@ Route::get('/add-to-cart',
 Route::get('/update-to-cart',
     action : [CartController::class,'update_to_cart'])->name('update_to_cart');
 
+Route::get('/remove_to_cart',
+    action : [CartController::class,'remove_to_cart'])->name('remove_to_cart');
+
 Route::get('/checkout',
     action : [CheckoutController::class,'index'])->name('checkout');
 
@@ -98,6 +101,11 @@ Route::get('/admin-product-update',
 Route::get('/admin-product-edit',
     action : [ProductManagerController::class,'edit'])->name('admin-product-edit');
 
+// Bill
+Route::get('/admin-bill',
+    action : [\App\Http\Controllers\admin\BillManagerController::class,'index'])->name('admin-bill');
+Route::get('/admin-detail-bill',
+    action : [\App\Http\Controllers\admin\BillManagerController::class,'view'])->name('admin-detail-bill');
 // detail
 Route::get('/details',
     action : [ProductDetailsController::class,'index'])->name('details');

@@ -13,7 +13,7 @@
                                   <h6>{{$image_banner->header}}</h6>
                                   <h2>{{$image_banner->title}}</h2>
                                   <p>{{$image_banner->content}}</p>
-                                  <a href="#" class="primary-btn">Buy now <span class="arrow_right"></span></a>
+                                  <a  href="{{route('shop')}}" class="primary-btn">Buy now </a>
                                   <div class="hero__social">
                                       <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                                       <a href="#"><i class="fa fa-twitter"></i></a>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>{{$images_top_3_best_sell[0]->name}}</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{route('details',parameters:['id'=>$images_top_3_best_sell[0]->id])}}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>{{$images_top_3_best_sell[1]->name}}</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{route('details',parameters:['id'=>$images_top_3_best_sell[1]->id])}}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="banner__item__text">
                             <h2>{{$images_top_3_best_sell[2]->name}}</h2>
-                            <a href="#">Shop now</a>
+                            <a href="{{route('details',parameters:['id'=>$images_top_3_best_sell[2]->id])}}">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -121,31 +121,28 @@
             @foreach($product_new_arrivals as $product)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix   new-arrivals ">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{{asset($product->get_url_image())}}">
-                            <span class="label"> New </span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="{{route('details',parameters:['id'=>$product->id])}}"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
+                        <a href="{{route('details',parameters:['id'=>$product->id])}}">
+                            <div  class="product__item__pic set-bg" data-setbg="{{$product->get_url_image()}}">
+                                <span class="label"> New </span>
+                            </div>
+                        </a>
                         @include('product.product_basic')
                     </div>
                 </div>
 
             @endforeach
 
+
+
+
             @foreach($product_hot_sales as $product)
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix   hot-sales ">
                     <div class="product__item sale">
-                        <div class="product__item__pic set-bg" data-setbg="{{asset($product->get_url_image())}}">
-                            <span class="label"> Sale </span>
-                            <ul class="product__hover">
-                                <li><a href="#"><img src="../img/icon/heart.png" alt=""></a></li>
-                                <li><a href="#"><img src="../img/icon/compare.png" alt=""> <span>Compare</span></a></li>
-                                <li><a href="{{route('details',parameters:['id'=>$product->id])}}"><img src="img/icon/search.png" alt=""></a></li>
-                            </ul>
-                        </div>
+                        <a href="{{route('details',parameters:['id'=>$product->id])}}">
+                            <div  class="product__item__pic set-bg" data-setbg="{{$product->get_url_image()}}">
+                                <span class="label"> Sale </span>
+                            </div>
+                        </a>
                         @include('product.product_basic')
                     </div>
                 </div>
@@ -196,7 +193,7 @@
                             <p>Seconds</p>
                         </div>
                     </div>
-                    <a href="#" class="primary-btn">Shop now</a>
+                    <a href="{{route('details',parameters:['id'=>$product_sell_time->id])}}" class="primary-btn">Shop now</a>
                 </div>
             </div>
         </div>
