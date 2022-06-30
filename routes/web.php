@@ -106,7 +106,10 @@ Route::get('/admin-bill',
     action : [\App\Http\Controllers\admin\BillManagerController::class,'index'])->name('admin-bill');
 Route::get('/admin-detail-bill',
     action : [\App\Http\Controllers\admin\BillManagerController::class,'view'])->name('admin-detail-bill');
-// detail
+
+Route::get('/admin-update-status-bill',
+    action : [\App\Http\Controllers\admin\BillManagerController::class,'update_status'])->name('admin-update-status-bill');
+
 Route::get('/details',
     action : [ProductDetailsController::class,'index'])->name('details');
 

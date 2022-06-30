@@ -32,7 +32,7 @@
                     font-weight: bold;
                 }
             </style>
-            <table  border="1">
+            <table  >
                 <tr ><h2 style="font-weight: bold">Thông tin hóa đơn</h2></tr>
                 <tr>
                     <td><h4 style="font-weight: bold">Mã hóa đơn : </h4></td>
@@ -60,7 +60,7 @@
 
                 <tr>
                     <td><h4>Trạng thái : </h4></td>
-                    <td><h5>@if($bill->status  === 0) {{"Đã hủy"}} @elseif($bill->status  === 1) {{"Đang chờ xác nhận"}} @else {{"Đã xác nhận giao"}} @endif </h5></td>
+                    <td><h5>@if($bill->status  === 0) {{"Đã hủy"}} @elseif($bill->status === 1) {{"Chờ xác nhận"}} @elseif($bill->status === 2) {{"Đã xác nhận"}} @elseif($bill->status === 3) {{"Đã thanh toán"}} @endif   </h5></td>
                 </tr>
 
                 <tr>
@@ -82,6 +82,66 @@
 
             <h2>Thông tin đơn hàng</h2>
             <table>
+
+
+                    <div class="shopping__cart__table">
+                        <table border="1" width="80%" style="margin: auto" >
+                            <thead>
+                            <tr>
+                                <th align="center" style="text-align: center">STT</th>
+                                <th align="center" style="text-align: center">Mã sản phẩm</th>
+                                <th align="center" style="text-align: center">Sản phẩm</th>
+                                <th align="center" style="text-align: center">Ảnh</th>
+                                <th align="center" style="text-align: center">Giá</th>
+                                <th align="center" style="text-align: center">Số lượng</th>
+                                <th align="center" style="text-align: center">Tổng</th>
+                                {{--                            <th>Mua</th>--}}
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php $stt=1 ?>
+                            @foreach($list_products as $product)
+
+
+
+                                <tr>
+                                    <td align="center">{{$stt++}}</td>
+                                    <td align="center">{{$product->id}}</td>
+                                    <td  align="center">
+
+                                        <div>
+                                            <h6>{{$product->name}}</h6>
+                                        </div>
+                                    </td>
+
+                                    <td align="center">
+                                        <img width="90" height="90 "src="{{"img/image-product/".$product->image}}" alt="">
+                                    </td>
+                                    <td align="center">
+                                        <h5><span >{{$product->price}}</span></h5>
+                                    </td>
+                                    <td align="center">
+                                        <div style="margin-left:10px;margin-right:10px;" ><span class="span-quantity">{{$product->qty}}</span></div>
+                                    </td>
+
+                                    <td align="center">
+                                        <div style="margin-left:10px;margin-right:10px;" ><span class="span-quantity">{{$product->qty * $product->price}}</span></div>
+                                    </td>
+
+                                </tr>
+                            @endforeach
+
+
+                            </tbody>
+                        </table>
+
+                        <button >
+                           <input type="submit">
+                        </button>
+
+                    </div>
+
 
             </table>
         </section>

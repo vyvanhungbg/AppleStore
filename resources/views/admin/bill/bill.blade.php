@@ -63,14 +63,15 @@
                         <tr>
                             <th>STT</th>
                             <th>ID</th>
-                            <th>User Name</th>
-                            <th>Total Price</th>
-                            <th>Address</th>
-                            <th>Payment Method</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                            <th>View</th>
-                            <th>Destroy</th>
+                            <th>Khách hàng</th>
+                            <th>Tổng đơn hàng</th>
+                            <th>Địa chỉ</th>
+                            <th>Thanh toán qua</th>
+                            <th>Trạng thái đơn</th>
+                            <th>Thời gian tạo đơn</th>
+                            <th>Xác nhận</th>
+                            <th>Xem chi tiết</th>
+                            <th>Xóa</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -83,22 +84,30 @@
                                 <td>{{$item->total_price}}</td>
                                 <td >{{$item->address}}</td>
                                 <td>{{$item->payment_method}}</td>
-                                <td>@if($item->status === 1) {{"Pending"}} @elseif($item->status === 2) {{"Accept"}} @endif </td>
+
+                                <td>@if($item->status === 1) {{"Chờ xác nhận"}} @elseif($item->status === 2) {{"Đã xác nhận"}} @elseif($item->status === 3) {{"Đã thanh toán"}} @endif </td>
+
+                                <td>{{$item->created_at}}</td>
                                 <td>
-                                    <a class="btn btn-info btn-sm" href="">
+                                    @if($item->status === 3)
+                                        <div>{{"Đã thanh toán"}}</div>
+                                    @else
+                                    <button class="btn btn-info btn-sm" href="">
                                         <i class="fas fa-pencil-alt">
+                                            <a href="{{route('admin-update-status-bill',parameters:['id'=>$item->id_order, 'status' =>$item->status])}}"class="btn btn-">
+                                                @if($item->status === 1) {{"Xác nhận"}} @elseif($item->status === 2) {{"Hoàn thành"}} @endif
+                                            </a>
+
                                         </i>
-                                        @if($item->status === 1) {{"Pending"}} @elseif($item->status === 2) {{"Accept"}}@endif
-                                    </a>
 
-
-
+                                    </button>
+                                    @endif
 
                                 </td>
 
+
                                 <td>  <button   class=" btn btn-danger btn-sm">
-                                        <i class="fas fa-view">
-                                        </i>
+                                        <i class="fas fa-view"></i>
                                         <a href="{{route('admin-detail-bill',parameters:['id'=>$item->id_order])}}"class="btn btn-">View</a>
                                     </button></td>
                                 <td>
