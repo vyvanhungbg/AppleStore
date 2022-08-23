@@ -54,28 +54,28 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li @if(Route::current()->getName() === 'home') class="active" @endif><a href="{{route('home')}}">Home</a></li>
-                        <li @if(Route::current()->getName() === 'shop') class="active" @endif><a href="{{route('shop')}}">Product</a></li>
-                        <li><a href="#">Pages</a>
+                        <li @if(Route::current()->getName() === 'home') class="active" @endif><a href="{{route('home')}}">Trang chủ</a></li>
+                        <li @if(Route::current()->getName() === 'shop') class="active" @endif><a href="{{route('shop')}}">Sản phẩm</a></li>
+                        <li @if(Route::current()->getName() === 'contacts') class="active" @endif><a href="{{route('contacts')}}">Liên lạc</a></li>
+                        <li><a href="#">Mua sắm</a>
                             <ul class="dropdown">
-                                <li><a href="./about.html">About Us</a></li>
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./checkout.html">Check Out</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
+                                <li><a href="{{route('cart')}}">Giỏ hàng</a></li>
+                                @if (Illuminate\Support\Facades\Auth::check() === true)
+                                <li><a href="{{route('order-list')}}">Xem đơn đặt hàng</a></li>
+                                @else
+                                @endif
                             </ul>
                         </li>
-                        <li @if(Route::current()->getName() === 'contacts') class="active" @endif><a href="{{route('contacts')}}">Contacts</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="header__nav__option">
                         @if (Illuminate\Support\Facades\Auth::check() === true)
-                            <a href="#">{{Auth::user()->fullname}}</a>
+                            <a href="{{route("user-detail")}}">{{Auth::user()->fullname}}</a>
                             <a href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
                         @else
-                        <a href="{{asset('../login')}}">Sign In</a>
+                        <a href="{{asset('../login')}}">Đăng nhập</a>
                         @endif
                     <a href="#" class="search-switch"><img src="{{asset('img/icon/search.png')}}" alt=""></a>
                     <a href="{{asset('/cart')}}"><img src="{{asset('img/icon/cart.png')}}" alt=""> <span>0</span></a>
@@ -98,7 +98,7 @@
     <div class="h-100 d-flex align-items-center justify-content-center">
         <div class="search-close-switch">+</div>
         <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Search here.....">
+        <input type="text" name="search" placeholder="Tìm kiếm.....">
         </form>
     </div>
 </div>
@@ -113,35 +113,34 @@
                     <div class="footer__logo">
                         <a href="#"><img src="img/footer-logo.png" alt=""></a>
                     </div>
-                    <p>Difference creates brand.</p>
+                    <p>Khác biệt tạo thương hiệu</p>
                     <a href="#"><img src="img/payment.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Shopping</h6>
+                    <h6>Mua sắm</h6>
                     <ul>
                         <li><a href="#">Iphone</a></li>
                         <li><a href="#">Ipad</a></li>
                         <li><a href="#">Apple watch</a></li>
-                        <li><a href="#">Sell</a></li>
+                        <li><a href="#">MacBook</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Other</h6>
+                    <h6>Khác</h6>
                     <ul>
 
-                        <li><a href="#">Payment method</a></li>
-                        <li><a href="#">delivery</a></li>
-
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="#">vận chuyển</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
                 <div class="footer__widget">
-                    <h6>Contact</h6>
+                    <h6>Liên hệ</h6>
                     <div class="footer__newslatter">
                         <p>Email : </p>
                         <form action="#">
@@ -156,12 +155,7 @@
             <div class="col-lg-12 text-center">
                 <div class="footer__copyright__text">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    <p>Copyright ©
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>2020
-                        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <p>Bản quyền thuộc nhóm 02 PMMNM
                     </p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
@@ -188,10 +182,11 @@
     $(document).ready(function(){
 
         $(".add-cart").click(function(){
+
             let id = $(this).data('id_add_to_cart');
             let name = $(this).data('name_add_to_cart');
             $.ajax({
-                url: '{{route('add_to_cart')}}',
+                url: "{{route('add_to_cart')}}",
                 type: 'GET',
 
                 data: {id}
@@ -212,7 +207,7 @@
             let id = $(this).data('id');
             let type = $(this).data('type');
             $.ajax({
-                url: '{{route('update_to_cart')}}',
+                url: "{{route('update_to_cart')}}",
                 type: 'GET',
                 data: {id,type}
             }).done(function (data) {
@@ -244,7 +239,7 @@
 
 
             }).fail(function () {
-                //alert("Thêm sản phẩm"+name+" thất bại ");
+                alert("Thêm sản phẩm"+name+" thất bại ");
             });
         });
     });
@@ -255,7 +250,7 @@
             let btn_close = $(this);
             let id = $(this).data('id');
             $.ajax({
-                url: '{{route('remove_to_cart')}}',
+                url: "{{route('remove_to_cart')}}",
                 type: 'GET',
                 data: {id}
             }).done(function (data) {

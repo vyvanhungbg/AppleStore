@@ -4,9 +4,9 @@ php:
     - no_unused_imports
   finder:
     not-name:
-      - product.blade.php
+      - index.php
 js:
   finder:
     not-name:
-      - webpack.mix.js
+      - vite.config.js
 css: true

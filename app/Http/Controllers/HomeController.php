@@ -15,6 +15,7 @@ class HomeController extends Controller
     public function index()
     {
         //query banner
+
         $images_banner = Banner::query()->get();
 
         //query Top 3 best selling products
