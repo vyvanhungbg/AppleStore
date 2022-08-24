@@ -51,7 +51,7 @@
                             <th>Mã đơn</th>
                             <th>Hàng</th>
                             <th>Địa chỉ</th>
-                            <th>Thời gian </th>
+                            <th>Phương thức </th>
                             <th></th>
                             <th>Tổng</th>
                             <th>Trạng thái</th>
@@ -61,7 +61,6 @@
                         <tbody>
                             <?php
                                 $i = 0;
-                            Carbon\Carbon::setLocale('vi')
                             ?>
                             @if(sizeof($order)>0)
                             @foreach($order as $orders)
@@ -101,14 +100,14 @@
                                     <a class="btn btn-info btn-sm" href="{{route('order-bill-detail',parameters: ['id'=>$orders->id_order])}}">
                                         <i class="fas fa-money-bill-alt">
                                         </i>
-                                        Xem
+                                        View
                                     </a>
 
                                     @if($orders->status === 1)
                                         <a class="btn btn-info btn-sm" onclick="return window.confirm('Are you sure you want to destroy this order? ?')" href="{{route('order-bill-destroy',parameters: ['id'=>$orders->id_order])}}" >
                                             <i class="fas fa-remove-alt">
                                             </i>
-                                            Hủy đặt
+                                            Destroy
                                         </a>
                                     @endif
                                 </td>

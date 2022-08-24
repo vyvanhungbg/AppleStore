@@ -1,9 +1,12 @@
-dowload composer + php 8,1 về . Tiến hành cài composer vào đường dẫn chứa php.exe (C:/php/php.exe)
+dowload composer + php 8,1 về . Tiến hành cài composer vào đường dẫn chữ php.exe (C:/php/php.exe)
 tiến hành chạy
 
+Các bước cơ bản như sau : Cài 2 gói Composer + Laravel dưới -> mở thử mục lên vào file .env ( nếu ko có tạo file này copy nguyên file .envxpamle) sửa hostdb, usename, pass trong file .env giống với db kết nối (xem ví dụ cuối file này) -> Mở xampp tạo bấm tạo db mới bấm tiếp import file applestore.sql để tạo csdl ( các bảng và dữ liệu ) , chạy 2 lệnh cmd (  composer update --ignore-platform-reqs và  composer dump-autoload) để khởi tạo vendor -> chạy  php artisan serve để mở cổng và click vào link trả về đó là link truy cập web
+
+Chú ý lệnh cmd : chạy tại thư mục code đang mở
 
 #Dowload
-    - Composer 
+    - Composer
         - https://getcomposer.org/download/
     - laravel
         - https://laravel.com/docs/9.x/installation#installation-via-composer
@@ -12,10 +15,8 @@ tiến hành chạy
 #Lệnh cmd
     - Chạy server
         php artisan serve
-
     - Tạo thư mục :
         composer create-project laravel/laravel your-project-name
-
     - Tạo file Controller
         php .\artisan make:controller WelcomeController
     - Tạo migration
@@ -29,8 +30,21 @@ tiến hành chạy
     - Tạo model + Controller
         php artisan make:model Student -a
 
+        chạy heroku cmd
+    php /app/artisan migrate --seed (lệnh backup tất cả bảng và dữ liệu seed )
+    php artisan db:seed(lệnh backup tất cả bảng và dữ liệu seed khuến khích lệnh này vì chạy theo thứ tự trong file database.seed tránh lỗi insert foreign key )
+	để chạy 2 lệnh trên thì phải tạo từ 2 lệnh dưới ( dữ liệu bảng (migrate ) + dữ liệu trong bảng seeder)  t
 
-#Lỗi
+// tạo dữ liệu từ db sẵn có (Seeder laravel tìm hiểu )
+    cài gói     : composer require orangehill/iseed
+    chạy lệnh : php artisan iseed management_image_banner,order_detail,order_list,product,product_category,product_images,product_information,user,user_level
+
+
+// tạ mirgrate từ từ db sẵn có   (Migrate Laravel tìm hiểu )
+             cài gói : composer require --dev "kitloong/laravel-migrations-generator"
+    ệnh generate : php artisan migrate:generate
+
+#Lỗi và cách fix
     - Uncaught Error: Class "Illuminate\Foundation\Application"
     - failed to open stream: No such file or directory in C:\...\vendor\composer\autoload_real.php
         Chạy :
@@ -47,3 +61,17 @@ tiến hành chạy
 #Tool hỗ trợ code laravel
     -Tạo debug bar tại chrome
         - composer require barryvdh/laravel-debugbar --dev
+
+ví dụ cấu hình db mysql có tên db là applestore
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=applestore
+DB_USERNAME=root
+DB_PASSWORD=
+
+tài khoản login hung
+mật khẩu 123
+
+--vy hùng--
+
