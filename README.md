@@ -9,6 +9,8 @@
 
 ## BTL-PHP-LARAVEL-FRAMEWORK
 
+**Bản thiết kế giao diện**
++ https://www.figma.com/file/E8vJpRKjXKRQppno2wMZGr/Untitled?node-id=0%3A1
 
 **Đăng nhập** 
 + Đăng nhập
