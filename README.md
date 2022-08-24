@@ -7,58 +7,116 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## BTL-PHP-LARAVEL-FRAMEWORK
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Đăng nhập** 
++ Đăng nhập
++ Đăng kí
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Giỏ hàng (Session + Ajax)**
++Thêm , tăng , giảm
 
-## Learning Laravel
+**Quản trị viên**
++ Quản lí sản phẩm (không ổn định )
++ Quản lí hóa đơn
++ Quản lí người dùng
++ Quản lí loại sản phẩm
++ Biểu đồ thống kê
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Người dùng (usecase)**
++ Cập nhật thông tin
++ Đặt sản phẩm
++ Xem trạng thái đơn hàng
++ Liên hệ cửa hàng
++ Xem sản phẩm
++ Tìm kiếm sản phẩm
++ Lọc sản phẩm
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**Một số hình ảnh**
+ 
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/home_1.png"></div>
+<h4 align="center"> <i>Hình ảnh 1 : Màn hình đầu trang chủ </i> </h4>
 
-### Premium Partners
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/hom_2.png"></div>
+<h4 align="center"> <i>Hình ảnh 2 : Màn hình thân trang chủ </i> </h4>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/shop.png"></div>
+<h4 align="center"> <i>Hình ảnh 3 : Màn hình trang mua sắm </i> </h4>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/contact.png"></div>
+<h4 align="center"> <i>Hình ảnh 4 : Màn hình liên hệ cửa hàng </i> </h4>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/cart.png"></div>
+<h4 align="center"> <i>Hình ảnh 5 : Màn hình giỏ hàng </i> </h4>
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/order-list.png"></div>
+<h4 align="center"> <i>Hình ảnh 6 : Màn hình xem trạng thái đơn hàng </i> </h4>
 
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/user-info.png"></div>
+<h4 align="center"> <i>Hình ảnh 7 : Màn hình xem thông tin cá nhân </i> </h4>
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/login.png"></div>
+<h4 align="center"> <i>Hình ảnh 8 : Màn hình đăng nhập </i> </h4>
+
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/signup.png"></div>
+<h4 align="center"> <i>Hình ảnh 9 : Màn hình đăng ký </i> </h4>
+
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/admin-home.png"></div>
+<h4 align="center"> <i>Hình ảnh 10 : Màn hình trang chủ admin </i> </h4>
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/admin-bill.png"></div>
+<h4 align="center"> <i>Hình ảnh 11 : Màn hình xác nhận đơn hàng </i> </h4>
+
+<br>
+<br>
+<div align="center">
+    <img src="https://github.com/vyvanhungbg/AppleStore/blob/main/image-readme/admin-product.png"></div>
+<h4 align="center"> <i>Hình ảnh 12 : Màn hình quản lí sản phẩm </i> </h4>
+
+##Base
++ https://laravel.com/
++ https://github.com/kitloong/laravel-migrations-generator
++ https://github.com/orangehill/iseed
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
